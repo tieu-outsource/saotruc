@@ -3,10 +3,10 @@ export default function Logo() {
     <>
       <div className="logo-icon-wrapper">
         <img
-          src="/logo-icon.png"
+          src="/logo-icon.avif"
           alt=""
-          width={431}
-          height={579}
+          width={164}
+          height={220}
           style={{ height: 38, width: "auto" }}
         />
       </div>

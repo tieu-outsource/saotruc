@@ -15,7 +15,7 @@ type ServiceCard = {
 const SERVICES: ServiceCard[] = [
   {
     num: "2.1",
-    bg: "lophoc.png",
+    bg: "lophoc.avif",
     title: "LỚP HỌC CÁC BỘ MÔN",
     items: ["Sáo trúc", "Dizi", "Sáo nứa", "Sáo mèo", "Và các bộ môn dân tộc khác"],
     btnLabel: "XEM CHI TIẾT",
@@ -23,7 +23,7 @@ const SERVICES: ServiceCard[] = [
   },
   {
     num: "2.2",
-    bg: "dangkykhoahoc.png",
+    bg: "dangkykhoahoc.avif",
     title: "ĐĂNG KÍ LỚP HỌC",
     items: ["Gia sư tại nhà", "Học trực tiếp tại trung tâm", "Học online 1 kèm 1"],
     btnLabel: "ĐĂNG KÝ NGAY",
@@ -31,7 +31,7 @@ const SERVICES: ServiceCard[] = [
   },
   {
     num: "2.3",
-    bg: "ban_sao.png",
+    bg: "ban_sao.avif",
     title: "BÁN CÁC LOẠI SÁO",
     items: ["Sáo trúc cao cấp", "Sáo dizi", "Sáo nứa, sáo mèo", "Phụ kiện sáo"],
     btnLabel: "MUA NGAY",
@@ -39,7 +39,7 @@ const SERVICES: ServiceCard[] = [
   },
   {
     num: "2.4",
-    bg: "khoahocquaysan.png",
+    bg: "khoahocquaysan.avif",
     title: "KHÓA HỌC QUAY SẴN",
     items: ["Sáo trúc cơ bản", "Sáo trúc nâng cao", "Sáo dizi & sáo nứa"],
     btnLabel: "XEM CHI TIẾT",
@@ -47,7 +47,7 @@ const SERVICES: ServiceCard[] = [
   },
   {
     num: "2.5",
-    bg: "tailieu.png",
+    bg: "tailieu.avif",
     title: "BÁN TÀI LIỆU",
     items: [
       "Giáo trình",
@@ -65,7 +65,7 @@ const SERVICES: ServiceCard[] = [
   },
   {
     num: "2.6",
-    bg: "thuam.png",
+    bg: "thuam.avif",
     title: "DỊCH VỤ THU ÂM, QUAY MV SÁO",
     items: ["Thu âm chuyên nghiệp", "Quay MV chất lượng cao", "Dựng video, chỉnh màu"],
     priceTitle: "Gói Full Combo",
@@ -74,7 +74,7 @@ const SERVICES: ServiceCard[] = [
   },
   {
     num: "2.7",
-    bg: "bookband.png",
+    bg: "bookband.avif",
     title: "BOOKING NGHỆ SĨ THỔI SÁO, BAND NHẠC DÂN TỘC",
     items: ["Biểu diễn sự kiện", "Hòa tấu, độc tấu sáo", "Ban nhạc dân tộc"],
     btnLabel: "LIÊN HỆ BOOKING",
@@ -82,7 +82,7 @@ const SERVICES: ServiceCard[] = [
   },
   {
     num: "2.8",
-    bg: "thuam-chong-nhac.png",
+    bg: "thuam-chong-nhac.avif",
     title: "DỊCH VỤ THU ÂM CHỒNG NHẠC THẬT",
     items: ["Thu âm các nhạc cụ dân tộc kết hợp hiện đại"],
     nestedItems: {

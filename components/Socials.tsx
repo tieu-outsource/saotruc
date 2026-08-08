@@ -1,4 +1,4 @@
-const SOCIALS = [
+export const SOCIALS = [
   {
     platform: "YouTube",
     handle: "Kênh sáo Hồng Việt",

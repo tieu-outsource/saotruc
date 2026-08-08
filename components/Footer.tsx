@@ -1,4 +1,11 @@
+"use client";
+
+import { useState } from "react";
+import ContactModal from "./ContactModal";
+
 export default function Footer() {
+  const [showContact, setShowContact] = useState(false);
+
   return (
     <footer>
       <div className="footer-container">
@@ -15,11 +22,17 @@ export default function Footer() {
             </span>
           </div>
         </div>
-        <a href="/#consultation" className="footer-cta" id="btn-consultation">
+        <button
+          type="button"
+          className="footer-cta"
+          id="btn-consultation"
+          onClick={() => setShowContact(true)}
+        >
           <i className="fa-solid fa-phone" aria-hidden="true" />
           LIÊN HỆ TƯ VẤN
-        </a>
+        </button>
       </div>
+      <ContactModal open={showContact} onClose={() => setShowContact(false)} />
     </footer>
   );
 }
