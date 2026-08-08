@@ -40,37 +40,31 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          JOB_STATUS: ${{ job.status }}
+          COMMIT_MSG: ${{ github.event.head_commit.message }}
+          COMMIT_AUTHOR: ${{ github.event.head_commit.author.name }}
         run: |
-          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
-            echo "Telegram secrets missing, skipping notification."
-            exit 0
-          fi
+          node -e "
+          const token = process.env.TELEGRAM_BOT_TOKEN;
+          const chatId = process.env.TELEGRAM_CHAT_ID;
+          if (!token || !chatId) {
+            console.log('Telegram secrets missing, skipping notification.');
+            process.exit(0);
+          }
+          const status = process.env.JOB_STATUS;
+          const msg = process.env.COMMIT_MSG || 'Cập nhật nội dung website từ CMS';
+          const author = process.env.COMMIT_AUTHOR || 'Admin';
 
-          STATUS="${{ job.status }}"
-          COMMIT_MSG="${{ github.event.head_commit.message }}"
-          AUTHOR="${{ github.event.head_commit.author.name }}"
+          let text = '';
+          if (status === 'success') {
+            text = \`🚀 *CẬP NHẬT WEBSITE THÀNH CÔNG!*\n\n📝 *Nội dung:* \${msg}\n👤 *Tác giả:* \${author}\n🌐 *Trang chủ:* https://saotruc.vercel.app\n\n✅ *Ghi chú:* Website Sáo trúc Âu Cơ đã tự động xuất bản và cập nhật nội dung mới nhất!\`;
+          } else {
+            text = \`❌ *CẬP NHẬT WEBSITE THẤT BẠI*\n\n📝 *Nội dung:* \${msg}\n👤 *Tác giả:* \${author}\n\n⚠️ Quá trình tự động xuất bản gặp lỗi. Vui lòng kiểm tra lại.\`;
+          }
 
-          if [ -z "$COMMIT_MSG" ]; then
-            COMMIT_MSG="Cập nhật nội dung website từ CMS"
-          fi
-
-          if [ "$STATUS" = "success" ]; then
-            MESSAGE="🚀 *CẬP NHẬT WEBSITE THÀNH CÔNG!*
-
-📝 *Nội dung:* ${COMMIT_MSG}
-👤 *Tác giả:* ${AUTHOR:-Admin}
-🌐 *Trang chủ:* https://saotruc.vercel.app
-
-✅ *Ghi chú:* Website Sáo trúc Âu Cơ đã tự động xuất bản và cập nhật nội dung mới nhất!"
-          else
-            MESSAGE="❌ *CẬP NHẬT WEBSITE THẤT BẠI*
-
-📝 *Nội dung:* ${COMMIT_MSG}
-👤 *Tác giả:* ${AUTHOR:-Admin}
-
-⚠️ Quá trình tự động xuất bản gặp lỗi. Vui lòng kiểm tra lại."
-          fi
-
-          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-            -H "Content-Type: application/json" \
-            -d "$(jq -n --arg chat_id "$TELEGRAM_CHAT_ID" --arg text "$MESSAGE" '{chat_id: $chat_id, text: $text, parse_mode: "Markdown"}')"
+          fetch(\`https://api.telegram.org/bot\${token}/sendMessage\`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'Markdown' })
+          }).then(res => res.json()).then(data => console.log('Telegram notice:', data.ok));
+          "
