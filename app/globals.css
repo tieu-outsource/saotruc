@@ -90,20 +90,24 @@ header#site-header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(13, 11, 9, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-gold);
+  background-color: rgba(13, 11, 9, 0.55);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
   transition: all 0.3s ease;
 }
 
 header#site-header.scrolled {
-  padding: 10px 0;
-  background-color: rgba(13, 11, 9, 0.95);
+  background-color: rgba(13, 11, 9, 0.7);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
+header#site-header.scrolled .header-container {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
 .header-container {
+  transition: padding 0.3s ease;
   max-width: 1200px;
   margin: 0 auto;
   padding: 15px 20px;
@@ -194,6 +198,7 @@ header#site-header.scrolled {
 
 .header-cta:hover {
   background-color: var(--accent-gold-light);
+  color: #0d0b09;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(151, 107, 44, 0.5);
 }
@@ -296,6 +301,7 @@ header#site-header.scrolled {
 
 .btn-primary:hover {
   background-color: var(--accent-gold-light);
+  color: #0d0b09;
   box-shadow: 0 6px 22px rgba(151, 107, 44, 0.5);
   transform: translateY(-2px);
 }
@@ -2519,17 +2525,76 @@ body > footer {
 }
 
 @media (max-width: 768px) {
+  .contact-section {
+    padding: 50px 16px 60px;
+  }
+
   .contact-card {
-    padding: 32px 24px;
+    padding: 24px 18px;
+    border-radius: 12px;
+  }
+
+  .contact-intro {
+    margin-bottom: 20px;
+  }
+
+  .contact-intro p {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .contact-channels {
+    margin-top: 12px;
+    gap: 6px;
+    font-size: 0.82rem;
+  }
+
+  .contact-form {
+    gap: 12px;
   }
 
   .contact-field-row {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .contact-field {
+    gap: 4px;
+  }
+
+  .contact-field label {
+    font-size: 0.78rem;
+  }
+
+  .contact-field input {
+    padding: 10px 12px;
+    font-size: 0.88rem;
+    border-radius: 6px;
+  }
+
+  .contact-field textarea {
+    padding: 10px 12px;
+    font-size: 0.88rem;
+    min-height: 85px;
+    border-radius: 6px;
   }
 
   .contact-submit {
     width: 100%;
     justify-content: center;
+    padding: 12px 18px;
+    font-size: 0.88rem;
+    margin-top: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 40px 12px 50px;
+  }
+
+  .contact-card {
+    padding: 20px 14px;
   }
 }
 
@@ -2981,5 +3046,180 @@ body > footer {
 @media (max-width: 768px) {
   .news-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================
+   ANIMATIONS & SCROLL REVEAL
+   ========================================== */
+
+/* Scroll reveal — driven by <ScrollReveal /> adding `.revealed`.
+   Animation-based (not transition) so per-card hover transitions
+   (lift, shadow) keep their own timing and are never delayed. */
+[data-reveal] {
+  opacity: 0;
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  animation: revealUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--d, 0s);
+}
+
+[data-reveal="left"].revealed {
+  animation-name: revealLeft;
+}
+
+[data-reveal="right"].revealed {
+  animation-name: revealRight;
+}
+
+[data-reveal="zoom"].revealed {
+  animation-name: revealZoom;
+}
+
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes revealLeft {
+  from { opacity: 0; transform: translateX(-36px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes revealRight {
+  from { opacity: 0; transform: translateX(36px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes revealZoom {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Hero entrance (above the fold — plays on load, no observer) */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-anim {
+  opacity: 0;
+  animation: heroFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-anim-1 { animation-delay: 0.1s; }
+.hero-anim-2 { animation-delay: 0.25s; }
+.hero-anim-3 { animation-delay: 0.4s; }
+.hero-anim-4 { animation-delay: 0.6s; }
+
+/* Ambient gold glow behind the hero content */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(151, 107, 44, 0.16), transparent 65%);
+  transform: translate(-50%, -50%);
+  animation: heroGlow 7s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes heroGlow {
+  from { transform: translate(-50%, -50%) scale(0.88); opacity: 0.65; }
+  to { transform: translate(-50%, -50%) scale(1.18); opacity: 1; }
+}
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gentle floating benefit icons */
+.benefit-icon-wrapper {
+  animation: floatY 4.5s ease-in-out infinite;
+}
+
+.benefit-item:nth-child(2) .benefit-icon-wrapper {
+  animation-delay: 0.6s;
+}
+
+.benefit-item:nth-child(3) .benefit-icon-wrapper {
+  animation-delay: 1.2s;
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Gold shimmer sweeping across section divider lines */
+.divider-line::before {
+  content: '';
+  position: absolute;
+  inset: -1px 0;
+  background: linear-gradient(90deg, transparent, var(--accent-gold-light), transparent);
+  background-size: 200% 100%;
+  animation: dividerShimmer 3.2s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+@keyframes dividerShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Sheen sweep across the primary CTA on hover */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.btn-primary:hover::after {
+  left: 130%;
+}
+
+/* Slow zoom of service card background imagery on hover */
+.card-bg {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-card:hover .card-bg {
+  transform: scale(1.06);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-reveal],
+  .hero-anim {
+    opacity: 1 !important;
   }
 }

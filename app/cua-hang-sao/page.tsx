@@ -32,7 +32,7 @@ export default async function CuaHangSaoPage() {
 
   return (
     <>
-      <Header activeHome={false} />
+      <Header />
       <main style={{ paddingTop: 130, minHeight: "85vh" }}>
         <section className="sao-store-section">
           <div className="section-divider" style={{ marginTop: 20 }}>

@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { cms } from "@/lib/reader";
 import { socialLink } from "@/lib/socials";
 
@@ -7,7 +8,7 @@ export default async function Socials() {
 
   return (
     <section className="socials-section">
-      <div className="section-divider">
+      <div className="section-divider" data-reveal>
         <div className="divider-line" aria-hidden="true" />
         <h2 className="section-divider-title">KẾT NỐI VỚI CHÚNG TÔI</h2>
         <div className="divider-line" aria-hidden="true" />
@@ -15,7 +16,7 @@ export default async function Socials() {
 
       <div className="socials">
         <div className="socials-grid">
-          {socials.map((social) => {
+          {socials.map((social, idx) => {
             const meta = socialLink(social.network);
             return (
               <a
@@ -24,6 +25,8 @@ export default async function Socials() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`social-card ${meta.className}`}
+                data-reveal
+                style={{ "--d": `${(idx % 4) * 90}ms` } as CSSProperties}
               >
                 <div className="social-icon-wrapper" aria-hidden="true">
                   <i className={meta.icon} />

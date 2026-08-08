@@ -42,7 +42,7 @@ export default async function LophocPage() {
 
   return (
     <>
-      <Header activeHome={false} />
+      <Header />
       <main style={{ paddingTop: 130, minHeight: "85vh" }}>
         <section className="lophoc-section">
           <div className="section-divider" style={{ marginTop: 20 }}>

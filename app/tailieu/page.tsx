@@ -37,7 +37,7 @@ export default async function TailieuPage() {
 
   return (
     <>
-      <Header activeHome={false} />
+      <Header />
       <main style={{ paddingTop: 130, minHeight: "85vh" }}>
         <section className="store-section">
           <div className="section-divider" style={{ marginTop: 20 }}>

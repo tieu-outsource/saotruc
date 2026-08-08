@@ -124,7 +124,7 @@ export default function ContactForm({
 
   return (
     <section id="contact" className="contact-section">
-      <div className="section-divider">
+      <div className="section-divider" data-reveal>
         <div className="divider-line" aria-hidden="true" />
         <h2 id="consultation" className="section-divider-title">
           {title}
@@ -133,7 +133,7 @@ export default function ContactForm({
       </div>
 
       <div className="contact-container">
-        <div className="contact-card">
+        <div className="contact-card" data-reveal>
           <div className="contact-intro">
             <p>{intro}</p>
             <ul className="contact-channels">

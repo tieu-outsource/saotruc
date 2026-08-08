@@ -67,7 +67,7 @@ export const cms = {
       contactTitle: s?.contactTitle ?? "LIÊN HỆ & ĐĂNG KÝ HỌC",
       contactIntro: s?.contactIntro ?? "Để lại thông tin, Sáo trúc Âu Cơ sẽ liên hệ tư vấn khóa học, mua sáo, tài liệu hoặc dịch vụ thu âm, biểu diễn trong thời gian sớm nhất.",
       contactSubmitLabel: s?.contactSubmitLabel ?? "GỬI ĐĂNG KÝ",
-      bankId: s?.bankId ?? "vietinbank",
+      bankId: s?.bankId ?? "ICB",
       bankAccountNo: s?.bankAccountNo ?? "113366668888",
       bankAccountName: s?.bankAccountName ?? "SAO TRUC AU CO",
       pinnedPosts: pinned,

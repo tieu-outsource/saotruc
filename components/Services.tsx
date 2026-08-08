@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { cms } from "@/lib/reader";
 
 type ServiceCard = {
@@ -55,7 +56,7 @@ export default async function Services() {
 
   return (
     <section id="services" className="services-section">
-      <div className="section-divider">
+      <div className="section-divider" data-reveal>
         <div className="divider-line" aria-hidden="true" />
         <h2 className="section-divider-title">DỊCH VỤ CỦA CHÚNG TÔI</h2>
         <div className="divider-line" aria-hidden="true" />
@@ -63,8 +64,13 @@ export default async function Services() {
 
       <div className="services">
         <div className="services-grid">
-          {cards.map((card) => (
-            <article key={card.num} className="service-card">
+          {cards.map((card, idx) => (
+            <article
+              key={card.num}
+              className="service-card"
+              data-reveal
+              style={{ "--d": `${(idx % 4) * 90}ms` } as CSSProperties}
+            >
               <div
                 className="card-bg"
                 aria-hidden="true"

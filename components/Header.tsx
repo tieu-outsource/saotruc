@@ -1,20 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
+type NavLink = { href: string; label: string; section?: string };
 
-const NAV_LINKS = [
-  { href: "/#about", label: "Giới thiệu" },
+const SECTION_IDS = ["news", "services", "contact"] as const;
+
+const NAV_LINKS: NavLink[] = [
+  { href: "/#news", label: "Tin tức", section: "news" },
   { href: "/lophoc", label: "Lớp học" },
-  { href: "/#products", label: "Sản phẩm" },
-  { href: "/#services", label: "Dịch vụ" },
-  { href: "/tin-tuc", label: "Tin tức" },
-  { href: "/#contact", label: "Liên hệ" },
+  { href: "/#services", label: "Dịch vụ", section: "services" },
+  { href: "/#contact", label: "Liên hệ", section: "contact" },
 ];
 
-export default function Header({ activeHome }: { activeHome?: boolean }) {
+export default function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const activeSectionRef = useRef<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -32,7 +37,52 @@ export default function Header({ activeHome }: { activeHome?: boolean }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
-  const home = activeHome !== false;
+  // Scroll spy: highlight the nav item for the home section currently in view
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection(null);
+      return;
+    }
+    const setSection = (id: string | null) => {
+      if (activeSectionRef.current === id) return;
+      activeSectionRef.current = id;
+      setActiveSection(id);
+    };
+    const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(
+      (el): el is HTMLElement => el !== null
+    );
+    if (!sections.length) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setSection(entry.target.id);
+            return;
+          }
+        }
+        const changed = new Set(entries.map((e) => e.target.id));
+        if (activeSectionRef.current && changed.has(activeSectionRef.current)) {
+          setSection(null);
+        }
+      },
+      { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => {
+      observer.disconnect();
+      activeSectionRef.current = null;
+    };
+  }, [pathname]);
+
+  const homeActive = pathname === "/" && activeSection === null;
+
+  const isActive = (link: (typeof NAV_LINKS)[number]) => {
+    if (link.section) {
+      if (pathname === "/") return activeSection === link.section;
+      return link.section === "news" && pathname.startsWith("/tin-tuc");
+    }
+    return pathname === link.href;
+  };
 
   return (
     <header id="site-header" className={scrolled ? "scrolled" : ""}>
@@ -45,7 +95,7 @@ export default function Header({ activeHome }: { activeHome?: boolean }) {
           <li>
             <a
               href="/"
-              className={`nav-link${home ? " active" : ""}`}
+              className={`nav-link${homeActive ? " active" : ""}`}
               onClick={() => setMenuOpen(false)}
             >
               Trang chủ
@@ -55,7 +105,7 @@ export default function Header({ activeHome }: { activeHome?: boolean }) {
             <li key={link.label}>
               <a
                 href={link.href}
-                className="nav-link"
+                className={`nav-link${isActive(link) ? " active" : ""}`}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}

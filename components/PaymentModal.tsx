@@ -32,7 +32,7 @@ export default function PaymentModal({
   useEffect(() => {
     setMounted(true);
   }, []);
-  const bankId = settings?.bankId || "vietinbank";
+  const bankId = settings?.bankId || "ICB";
   const bankAccountNo = settings?.bankAccountNo || "113366668888";
   const bankAccountName = settings?.bankAccountName || "SAO TRUC AU CO";
   const itemCode = item?.code || item?.id || "AUCO_STORE";

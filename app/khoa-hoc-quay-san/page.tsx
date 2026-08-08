@@ -37,7 +37,7 @@ export default async function KhoaHocQuaySanPage() {
 
   return (
     <>
-      <Header activeHome={false} />
+      <Header />
       <main style={{ paddingTop: 130, minHeight: "85vh" }}>
         <section className="khoahoc-section">
           <div className="section-divider" style={{ marginTop: 20 }}>

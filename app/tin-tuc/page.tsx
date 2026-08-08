@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -31,7 +32,7 @@ export default async function TinTucPage() {
 
   return (
     <>
-      <Header activeHome={false} />
+      <Header />
       <main style={{ paddingTop: 130, minHeight: "85vh" }}>
         <section className="news-section">
           <div className="section-divider" style={{ marginTop: 20 }}>
@@ -51,8 +52,13 @@ export default async function TinTucPage() {
             <p className="news-empty">Chưa có bài viết nào.</p>
           ) : (
             <div className="news-grid">
-              {published.map((post) => (
-                <article key={post.slug} className="news-card">
+              {published.map((post, idx) => (
+                <article
+                  key={post.slug}
+                  className="news-card"
+                  data-reveal
+                  style={{ "--d": `${(idx % 3) * 110}ms` } as CSSProperties}
+                >
                   {post.entry.cover && (
                     <div className="news-card-cover">
                       <img

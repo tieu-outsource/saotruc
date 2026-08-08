@@ -37,7 +37,7 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <>
-      <Header activeHome={false} />
+      <Header />
       <main style={{ paddingTop: 130, minHeight: "85vh" }}>
         <article className="post-container">
           <header className="post-header">

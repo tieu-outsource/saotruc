@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import type { CSSProperties } from "react";
 import Services from "@/components/Services";
 import Socials from "@/components/Socials";
 import ContactForm from "@/components/ContactForm";
@@ -23,25 +24,25 @@ export default async function HomePage() {
         <section className="hero" id="home">
           <div className="hero-container">
             <div className="hero-content">
-              <h1 className="hero-title">
+              <h1 className="hero-title hero-anim hero-anim-1">
                 {settings?.heroTitle ?? "Kết nối tâm hồn"}
                 <span>{settings?.heroAccent ?? "Qua từng thanh sáo"}</span>
               </h1>
-              <p className="hero-description">
+              <p className="hero-description hero-anim hero-anim-2">
                 {settings?.heroDescription ??
                   "Dạy học – Biểu diễn – Sản phẩm & Dịch vụ chuyên nghiệp về sáo trúc và âm nhạc dân tộc."}
               </p>
-              <div className="hero-buttons">
+              <div className="hero-buttons hero-anim hero-anim-3">
                 <a href="#services" className="btn btn-primary" id="btn-explore">
                   KHÁM PHÁ DỊCH VỤ
                 </a>
-                <a href="#about" className="btn btn-outline" id="btn-about">
-                  VỀ CHÚNG TÔI
+                <a href="#contact" className="btn btn-outline" id="btn-about">
+                  TƯ VẤN
                 </a>
               </div>
             </div>
 
-            <div className="hero-benefits">
+            <div className="hero-benefits hero-anim hero-anim-4">
               {benefits.map((b) => (
                 <div key={b.text} className="benefit-item">
                   <div className="benefit-icon-wrapper" aria-hidden="true">
@@ -59,14 +60,19 @@ export default async function HomePage() {
 
         {pinnedPosts.length > 0 && (
           <section className="pinned-posts" id="news">
-            <div className="section-divider">
+            <div className="section-divider" data-reveal>
               <div className="divider-line" aria-hidden="true" />
               <h2 className="section-divider-title">TIN TỨC NỔI BẬT</h2>
               <div className="divider-line" aria-hidden="true" />
             </div>
             <div className="pinned-posts-grid">
-              {pinnedPosts.map((post) => (
-                <article key={post.slug} className="pinned-post-card">
+              {pinnedPosts.map((post, idx) => (
+                <article
+                  key={post.slug}
+                  className="pinned-post-card"
+                  data-reveal
+                  style={{ "--d": `${(idx % 3) * 110}ms` } as CSSProperties}
+                >
                   {post.cover && (
                     <div className="pinned-post-cover">
                       <img src={post.cover} alt="" loading="lazy" />
@@ -87,7 +93,7 @@ export default async function HomePage() {
                 </article>
               ))}
             </div>
-            <div className="pinned-posts-cta">
+            <div className="pinned-posts-cta" data-reveal>
               <a href="/tin-tuc" className="btn btn-outline">
                 XEM TẤT CẢ TIN TỨC
               </a>

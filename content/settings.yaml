@@ -12,6 +12,9 @@ heroBenefits:
     text: Học viên trên toàn quốc
   - icon: fa-solid fa-heart
     text: Đam mê – Tận tâm – Truyền cảm hứng
+pinnedPosts:
+  - gioi-thieu-ve-sao-truc-au-co
+  - cac-lop-hoc-sao-truc-tai-au-co
 phoneRaw: '0382910471'
 phoneDisplay: 0382 910 471
 zalo: '0382910471'
@@ -45,12 +48,9 @@ footerCustomFields:
 footerCopyright: © 2026 Sáo trúc Âu Cơ. Tất cả quyền được bảo lưu.
 contactTitle: LIÊN HỆ & ĐĂNG KÝ HỌC
 contactIntro: >-
-  Để lại thông tin, Sáo trúc Âu Cơ sẽ liên hệ tư vấn khóa học, mua sáo, tài liệu hoặc
-  dịch vụ thu âm, biểu diễn trong thời gian sớm nhất.
+  Để lại thông tin, Sáo trúc Âu Cơ sẽ liên hệ tư vấn khóa học, mua sáo, tài liệu
+  hoặc dịch vụ thu âm, biểu diễn trong thời gian sớm nhất.
 contactSubmitLabel: GỬI ĐĂNG KÝ
-bankId: vietinbank
-bankAccountNo: '113366668888'
-bankAccountName: SAO TRUC AU CO
-pinnedPosts:
-  - gioi-thieu-ve-sao-truc-au-co
-  - cac-lop-hoc-sao-truc-tai-au-co
+bankId: TCB
+bankAccountNo: '9720041999'
+bankAccountName: LE CANH TIEU
