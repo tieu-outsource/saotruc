@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hồng Việt - Sáo Trúc & Âm Nhạc Dân Tộc</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Học sáo trúc và âm nhạc dân tộc cùng Hồng Việt. Dạy học, biểu diễn chuyên nghiệp, cung cấp nhạc cụ truyền thống chất lượng cao.">
+  <meta name="keywords" content="sáo trúc, học sáo trúc, dizi, sáo mèo, âm nhạc dân tộc, nhạc cụ truyền thống, thu âm sáo">
+  <meta name="author" content="Hồng Việt">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Theme Meta -->
+  <meta name="color-scheme" content="dark">
+  <script>
+    // Inline theme setup
+    document.documentElement.style.colorScheme = 'dark';
+  </script>
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER / NAVIGATION
+       ========================================== -->
+  <header id="site-header">
+    <div class="header-container">
+      <a href="#" class="logo-link" id="logo">
+        <div class="logo-icon-wrapper">
+          <!-- Custom SVG Logo representing crossed flutes -->
+          <svg width="34" height="34" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 52L52 12" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <path d="M12 12L52 52" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="25" cy="25" r="2" fill="currentColor"/>
+            <circle cx="30" cy="30" r="2" fill="currentColor"/>
+            <circle cx="35" cy="35" r="2" fill="currentColor"/>
+            <circle cx="39" cy="25" r="2" fill="currentColor"/>
+            <circle cx="34" cy="30" r="2" fill="currentColor"/>
+            <circle cx="29" cy="35" r="2" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">HỒNG VIỆT</span>
+          <span class="logo-subtitle">SÁO TRÚC & ÂM NHẠC DÂN TỘC</span>
+        </div>
+      </a>
+      
+      <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#" class="nav-link active">Trang chủ</a></li>
+        <li><a href="#about" class="nav-link">Giới thiệu</a></li>
+        <li><a href="#classes" class="nav-link">Lớp học</a></li>
+        <li><a href="#products" class="nav-link">Sản phẩm</a></li>
+        <li><a href="#services" class="nav-link">Dịch vụ</a></li>
+        <li><a href="#news" class="nav-link">Tin tức</a></li>
+        <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+      </ul>
+
+      <a href="#register" class="header-cta" id="header-cta-btn">
+        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+        ĐĂNG KÝ HỌC
+      </a>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO SECTION
+       ========================================== -->
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Kết nối tâm hồn
+            <span>Qua từng thanh sáo</span>
+          </h1>
+          <p class="hero-description">
+            Dạy học – Biểu diễn – Sản phẩm & Dịch vụ chuyên nghiệp về sáo trúc và âm nhạc dân tộc.
+          </p>
+          <div class="hero-buttons">
+            <a href="#services" class="btn btn-primary" id="btn-explore">KHÁM PHÁ DỊCH VỤ</a>
+            <a href="#about" class="btn btn-outline" id="btn-about">VỀ CHÚNG TÔI</a>
+          </div>
+          <div class="slider-dots">
+            <span class="dot active" aria-label="Slide 1"></span>
+            <span class="dot" aria-label="Slide 2"></span>
+            <span class="dot" aria-label="Slide 3"></span>
+          </div>
+        </div>
+
+        <div class="hero-benefits">
+          <div class="benefit-item">
+            <div class="benefit-icon-wrapper" aria-hidden="true">
+              <i class="fa-solid fa-music"></i>
+            </div>
+            <span class="benefit-text">Phương pháp bài bản, dễ hiểu</span>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon-wrapper" aria-hidden="true">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <span class="benefit-text">Giáo viên chuyên nghiệp</span>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon-wrapper" aria-hidden="true">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <span class="benefit-text">Học viên trên toàn quốc</span>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon-wrapper" aria-hidden="true">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <span class="benefit-text">Đam mê – Tận tâm – Truyền cảm hứng</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SERVICES SECTION
+         ========================================== -->
+    <section id="services" class="services-section">
+      <div class="section-divider">
+        <div class="divider-line" aria-hidden="true"></div>
+        <h2 class="section-divider-title">DỊCH VỤ CỦA CHÚNG TÔI</h2>
+        <div class="divider-line" aria-hidden="true"></div>
+      </div>
+
+      <div class="services">
+        <div class="services-grid">
+          
+          <!-- Card 2.1 -->
+          <article class="service-card">
+            <div class="card-num">2.1</div>
+            <div class="service-card-content">
+              <h3 class="service-title">LỚP HỌC CÁC BỘ MÔN</h3>
+              <div class="service-divider" aria-hidden="true"></div>
+              <ul class="service-list">
+                <li>Sáo trúc</li>
+                <li>Dizi</li>
+                <li>Sáo nứa</li>
+                <li>Sáo mèo</li>
+                <li>Và các bộ môn dân tộc khác</li>
+              </ul>
+            </div>
+            <button class="card-btn" id="btn-service-2.1">XEM CHI TIẾT</button>
+          </article>
+
+          <!-- Card 2.2 -->
+          <article class="service-card">
+            <div class="card-num">2.2</div>
+            <div class="service-card-content">
+              <h3 class="service-title">ĐĂNG KÍ LỚP HỌC</h3>
+              <div class="service-divider" aria-hidden="true"></div>
+              <ul class="service-list">
+                <li>Gia sư tại nhà</li>
+                <li>Học trực tiếp tại trung tâm</li>
+                <li>Học online 1 kèm 1</li>
+              </ul>
+            </div>
+            <button class="card-btn" id="btn-service-2.2">ĐĂNG KÝ NGAY</button>
+          </article>
+
+          <!-- Card 2.3 -->
+          <article class="service-card">
+            <div class="card-num">2.3</div>
+            <div class="service-card-content">
+              <h3 class="service-title">BÁN CÁC LOẠI SÁO</h3>
+              <div class="service-divider" aria-hidden="true"></div>
+              <ul class="service-list">
+                <li>Sáo trúc cao cấp</li>
+                <li>Sáo dizi</li>
+                <li>Sáo nứa, sáo mèo</li>
+                <li>Phụ kiện sáo</li>
+              </ul>
+            </div>
+            <button class="card-btn" id="btn-service-2.3">MUA NGAY</button>
+          </article>
+
+          <!-- Card 2.4 (Unlaunched) -->
+          <article class="service-card card-unlaunched">
+            <div class="card-num">2.4</div>
+            <div class="service-card-content" style="justify-content: center;">
+              <h3 class="service-title" style="text-align: center;">KHÓA HỌC QUAY SẴN</h3>
+              <div class="unlaunched-icon" aria-hidden="true">
+                <i class="fa-solid fa-film"></i>
+              </div>
+              <p class="unlaunched-text">Chưa triển khai<br>(Sắp ra mắt)</p>
+            </div>
+          </article>
+
+          <!-- Card 2.5 -->
+          <article class="service-card">
+            <div class="card-num">2.5</div>
+            <div class="service-card-content">
+              <h3 class="service-title">BÁN TÀI LIỆU</h3>
+              <div class="service-divider" aria-hidden="true"></div>
+              <ul class="service-list">
+                <li>Giáo trình
+                  <ul>
+                    <li>Giáo trình ABC cơ bản</li>
+                    <li>Giáo trình nâng cao</li>
+                  </ul>
+                </li>
+                <li>Sheet nhạc
+                  <ul>
+                    <li>Chuyển soạn theo yêu cầu</li>
+                  </ul>
+                </li>
+              </ul>
+              <div class="price-box">
+                <div class="price-box-title">Sheet nhạc</div>
+                <div class="price-box-amount">100.000đ / sheet</div>
+              </div>
+            </div>
+            <a href="tailieu.html" class="card-btn" id="btn-service-2.5">XEM NGAY</a>
+          </article>
+
+          <!-- Card 2.6 -->
+          <article class="service-card">
+            <div class="card-num">2.6</div>
+            <div class="service-card-content">
+              <h3 class="service-title">DỊCH VỤ THU ÂM, QUAY MV SÁO</h3>
+              <div class="service-divider" aria-hidden="true"></div>
+              <ul class="service-list">
+                <li>Thu âm chuyên nghiệp</li>
+                <li>Quay MV chất lượng cao</li>
+                <li>Dựng video, chỉnh màu</li>
+              </ul>
+              <div class="price-box">
+                <div class="price-box-title">Gói Full Combo</div>
+                <div class="price-box-amount">2.500.000đ / 1 bài</div>
+              </div>
+              <div class="gift-note">
+                <i class="fa-solid fa-gift" aria-hidden="true"></i>
+                <span>Học viên học hết khóa 3 tháng được tặng 1 MV làm kỷ niệm</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2.7 -->
+          <article class="service-card">
+            <div class="card-num">2.7</div>
+            <div class="service-card-content">
+              <h3 class="service-title">BOOKING NGHỆ SĨ THỔI SÁO, BAND NHẠC DÂN TỘC</h3>
+              <div class="service-divider" aria-hidden="true"></div>
+              <ul class="service-list">
+                <li>Biểu diễn sự kiện</li>
+                <li>Hòa tấu, độc tấu sáo</li>
+                <li>Ban nhạc dân tộc</li>
+              </ul>
+            </div>
+            <button class="card-btn" id="btn-service-2.7">LIÊN HỆ BOOKING</button>
+          </article>
+
+          <!-- Card 2.8 -->
+          <article class="service-card">
+            <div class="card-num">2.8</div>
+            <div class="service-card-content">
+              <h3 class="service-title">DỊCH VỤ THU ÂM CHỒNG NHẠC THẬT</h3>
+              <div class="service-divider" aria-hidden="true"></div>
+              <ul class="service-list">
+                <li>Thu âm các nhạc cụ dân tộc kết hợp hiện đại:
+                  <ul>
+                    <li>Tranh, Sáo, Bầu, Guitar, Đàn tranh,...</li>
+                  </ul>
+                </li>
+              </ul>
+              <div class="price-box">
+                <div class="price-box-title">Đơn giá</div>
+                <div class="price-box-amount">500.000đ / 1 bài / 1 nhạc cụ</div>
+              </div>
+            </div>
+            <button class="card-btn" id="btn-service-2.8">LIÊN HỆ NGAY</button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SOCIAL CONNECTIONS SECTION
+         ========================================== -->
+    <section class="socials-section">
+      <div class="section-divider">
+        <div class="divider-line" aria-hidden="true"></div>
+        <h2 class="section-divider-title">2.9 KẾT NỐI VỚI CHÚNG TÔI</h2>
+        <div class="divider-line" aria-hidden="true"></div>
+      </div>
+
+      <div class="socials">
+        <div class="socials-grid">
+          
+          <!-- YouTube -->
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-card youtube" id="link-youtube">
+            <div class="social-icon-wrapper" aria-hidden="true">
+              <i class="fa-brands fa-youtube"></i>
+            </div>
+            <div class="social-info">
+              <div class="social-platform">YouTube</div>
+              <div class="social-handle">Kênh sáo Hồng Việt</div>
+            </div>
+            <button class="social-btn" tabindex="-1">XEM KÊNH</button>
+          </a>
+
+          <!-- Facebook -->
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-card facebook" id="link-facebook">
+            <div class="social-icon-wrapper" aria-hidden="true">
+              <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <div class="social-info">
+              <div class="social-platform">Fanpage Facebook</div>
+              <div class="social-handle">Hồng Việt Sáo Trúc</div>
+            </div>
+            <button class="social-btn" tabindex="-1">THEO DÕI</button>
+          </a>
+
+          <!-- TikTok -->
+          <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-card tiktok" id="link-tiktok">
+            <div class="social-icon-wrapper" aria-hidden="true">
+              <i class="fa-brands fa-tiktok"></i>
+            </div>
+            <div class="social-info">
+              <div class="social-platform">TikTok</div>
+              <div class="social-handle">@hongvietsao</div>
+            </div>
+            <button class="social-btn" tabindex="-1">THEO DÕI</button>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-card instagram" id="link-instagram">
+            <div class="social-icon-wrapper" aria-hidden="true">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div class="social-info">
+              <div class="social-platform">Instagram</div>
+              <div class="social-handle">@hongviet.music</div>
+            </div>
+            <button class="social-btn" tabindex="-1">THEO DÕI</button>
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       FOOTER SECTION
+       ========================================== -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-motto-wrapper">
+        <div class="footer-icon-wrapper" aria-hidden="true">
+          <i class="fa-solid fa-music"></i>
+        </div>
+        <div class="footer-motto">
+          <span class="footer-title">ĐAM MÊ LÀM NÊN GIÁ TRỊ - CHẤT LƯỢNG TẠO NÊN UY TÍN</span>
+          <span class="footer-subtitle">Đồng hành cùng bạn trên hành trình chạm đến âm nhạc truyền thống.</span>
+        </div>
+      </div>
+      <a href="#consultation" class="footer-cta" id="btn-consultation">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+        LIÊN HỆ TƯ VẤN
+      </a>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       JAVASCRIPT
+       ========================================== -->
+  <script>
+    // Sticky header change styling on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('site-header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile navigation toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      const isExpanded = navMenu.classList.contains('active');
+      menuToggle.setAttribute('aria-expanded', isExpanded);
+      
+      // Simple toggle menu icon
+      const icon = menuToggle.querySelector('i');
+      if (isExpanded) {
+        icon.className = 'fa-solid fa-xmark';
+        navMenu.style.display = 'flex';
+        navMenu.style.flexDirection = 'column';
+        navMenu.style.position = 'absolute';
+        navMenu.style.top = '100%';
+        navMenu.style.left = '0';
+        navMenu.style.width = '100%';
+        navMenu.style.backgroundColor = 'rgba(13, 11, 9, 0.95)';
+        navMenu.style.padding = '20px';
+        navMenu.style.borderBottom = '1px solid var(--border-gold)';
+      } else {
+        icon.className = 'fa-solid fa-bars';
+        navMenu.style.display = '';
+      }
+    });
+
+    // Simple interaction animations for cards
+    const cards = document.querySelectorAll('.service-card, .social-card');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      });
+    });
+  </script>
+</body>
+</html>
