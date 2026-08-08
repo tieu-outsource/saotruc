@@ -13,7 +13,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -37,17 +37,7 @@
     <div class="header-container">
       <a href="#" class="logo-link" id="logo">
         <div class="logo-icon-wrapper">
-          <!-- Custom SVG Logo representing crossed flutes -->
-          <svg width="34" height="34" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 52L52 12" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-            <path d="M12 12L52 52" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="25" cy="25" r="2" fill="currentColor"/>
-            <circle cx="30" cy="30" r="2" fill="currentColor"/>
-            <circle cx="35" cy="35" r="2" fill="currentColor"/>
-            <circle cx="39" cy="25" r="2" fill="currentColor"/>
-            <circle cx="34" cy="30" r="2" fill="currentColor"/>
-            <circle cx="29" cy="35" r="2" fill="currentColor"/>
-          </svg>
+          <img src="../public/logo-icon.png" alt="" width="431" height="579" style="height: 38px; width: auto;">
         </div>
         <div class="logo-text">
           <span class="logo-title">HỒNG VIỆT</span>
@@ -93,11 +83,6 @@
           <div class="hero-buttons">
             <a href="#services" class="btn btn-primary" id="btn-explore">KHÁM PHÁ DỊCH VỤ</a>
             <a href="#about" class="btn btn-outline" id="btn-about">VỀ CHÚNG TÔI</a>
-          </div>
-          <div class="slider-dots">
-            <span class="dot active" aria-label="Slide 1"></span>
-            <span class="dot" aria-label="Slide 2"></span>
-            <span class="dot" aria-label="Slide 3"></span>
           </div>
         </div>
 
@@ -145,10 +130,12 @@
           
           <!-- Card 2.1 -->
           <article class="service-card">
-            <div class="card-num">2.1</div>
-            <div class="service-card-content">
+            <div class="card-bg" aria-hidden="true" style="background-image: url('assets/features/lophoc.png');"></div>
+            <div class="service-card-header">
+              <div class="card-num">2.1</div>
               <h3 class="service-title">LỚP HỌC CÁC BỘ MÔN</h3>
-              <div class="service-divider" aria-hidden="true"></div>
+            </div>
+            <div class="service-card-content">
               <ul class="service-list">
                 <li>Sáo trúc</li>
                 <li>Dizi</li>
@@ -162,10 +149,12 @@
 
           <!-- Card 2.2 -->
           <article class="service-card">
-            <div class="card-num">2.2</div>
-            <div class="service-card-content">
+            <div class="card-bg" aria-hidden="true" style="background-image: url('assets/features/dangkykhoahoc.png');"></div>
+            <div class="service-card-header">
+              <div class="card-num">2.2</div>
               <h3 class="service-title">ĐĂNG KÍ LỚP HỌC</h3>
-              <div class="service-divider" aria-hidden="true"></div>
+            </div>
+            <div class="service-card-content">
               <ul class="service-list">
                 <li>Gia sư tại nhà</li>
                 <li>Học trực tiếp tại trung tâm</li>
@@ -177,10 +166,12 @@
 
           <!-- Card 2.3 -->
           <article class="service-card">
-            <div class="card-num">2.3</div>
-            <div class="service-card-content">
+            <div class="card-bg" aria-hidden="true" style="background-image: url('assets/features/ban_sao.png');"></div>
+            <div class="service-card-header">
+              <div class="card-num">2.3</div>
               <h3 class="service-title">BÁN CÁC LOẠI SÁO</h3>
-              <div class="service-divider" aria-hidden="true"></div>
+            </div>
+            <div class="service-card-content">
               <ul class="service-list">
                 <li>Sáo trúc cao cấp</li>
                 <li>Sáo dizi</li>
@@ -191,24 +182,31 @@
             <button class="card-btn" id="btn-service-2.3">MUA NGAY</button>
           </article>
 
-          <!-- Card 2.4 (Unlaunched) -->
-          <article class="service-card card-unlaunched">
-            <div class="card-num">2.4</div>
-            <div class="service-card-content" style="justify-content: center;">
-              <h3 class="service-title" style="text-align: center;">KHÓA HỌC QUAY SẴN</h3>
-              <div class="unlaunched-icon" aria-hidden="true">
-                <i class="fa-solid fa-film"></i>
-              </div>
-              <p class="unlaunched-text">Chưa triển khai<br>(Sắp ra mắt)</p>
+          <!-- Card 2.4 -->
+          <article class="service-card">
+            <div class="card-bg" aria-hidden="true" style="background-image: url('assets/features/khoahocquaysan.png');"></div>
+            <div class="service-card-header">
+              <div class="card-num">2.4</div>
+              <h3 class="service-title">KHÓA HỌC QUAY SẴN</h3>
             </div>
+            <div class="service-card-content">
+              <ul class="service-list">
+                <li>Sáo trúc cơ bản</li>
+                <li>Sáo trúc nâng cao</li>
+                <li>Sáo dizi & sáo nứa</li>
+              </ul>
+            </div>
+            <button class="card-btn" id="btn-service-2.4">XEM CHI TIẾT</button>
           </article>
 
           <!-- Card 2.5 -->
           <article class="service-card">
-            <div class="card-num">2.5</div>
-            <div class="service-card-content">
+            <div class="card-bg" aria-hidden="true" style="background-image: url('assets/features/tailieu.png');"></div>
+            <div class="service-card-header">
+              <div class="card-num">2.5</div>
               <h3 class="service-title">BÁN TÀI LIỆU</h3>
-              <div class="service-divider" aria-hidden="true"></div>
+            </div>
+            <div class="service-card-content">
               <ul class="service-list">
                 <li>Giáo trình
                   <ul>
@@ -232,10 +230,12 @@
 
           <!-- Card 2.6 -->
           <article class="service-card">
-            <div class="card-num">2.6</div>
-            <div class="service-card-content">
+            <div class="card-bg" aria-hidden="true" style="background-image: url('assets/features/thuam.png');"></div>
+            <div class="service-card-header">
+              <div class="card-num">2.6</div>
               <h3 class="service-title">DỊCH VỤ THU ÂM, QUAY MV SÁO</h3>
-              <div class="service-divider" aria-hidden="true"></div>
+            </div>
+            <div class="service-card-content">
               <ul class="service-list">
                 <li>Thu âm chuyên nghiệp</li>
                 <li>Quay MV chất lượng cao</li>
@@ -245,19 +245,21 @@
                 <div class="price-box-title">Gói Full Combo</div>
                 <div class="price-box-amount">2.500.000đ / 1 bài</div>
               </div>
-              <div class="gift-note">
-                <i class="fa-solid fa-gift" aria-hidden="true"></i>
-                <span>Học viên học hết khóa 3 tháng được tặng 1 MV làm kỷ niệm</span>
-              </div>
+            </div>
+            <div class="gift-note">
+              <i class="fa-solid fa-gift" aria-hidden="true"></i>
+              <span>Học viên học hết khóa 3 tháng được tặng 1 MV làm kỷ niệm</span>
             </div>
           </article>
 
           <!-- Card 2.7 -->
           <article class="service-card">
-            <div class="card-num">2.7</div>
-            <div class="service-card-content">
+            <div class="card-bg" aria-hidden="true" style="background-image: url('assets/features/bookband.png');"></div>
+            <div class="service-card-header">
+              <div class="card-num">2.7</div>
               <h3 class="service-title">BOOKING NGHỆ SĨ THỔI SÁO, BAND NHẠC DÂN TỘC</h3>
-              <div class="service-divider" aria-hidden="true"></div>
+            </div>
+            <div class="service-card-content">
               <ul class="service-list">
                 <li>Biểu diễn sự kiện</li>
                 <li>Hòa tấu, độc tấu sáo</li>
@@ -269,10 +271,12 @@
 
           <!-- Card 2.8 -->
           <article class="service-card">
-            <div class="card-num">2.8</div>
-            <div class="service-card-content">
+            <div class="card-bg" aria-hidden="true" style="background-image: url('assets/features/thuam-chong-nhac.png');"></div>
+            <div class="service-card-header">
+              <div class="card-num">2.8</div>
               <h3 class="service-title">DỊCH VỤ THU ÂM CHỒNG NHẠC THẬT</h3>
-              <div class="service-divider" aria-hidden="true"></div>
+            </div>
+            <div class="service-card-content">
               <ul class="service-list">
                 <li>Thu âm các nhạc cụ dân tộc kết hợp hiện đại:
                   <ul>

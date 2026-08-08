@@ -28,11 +28,6 @@ export default function HomePage() {
                   VỀ CHÚNG TÔI
                 </a>
               </div>
-              <div className="slider-dots">
-                <span className="dot active" aria-label="Slide 1" />
-                <span className="dot" aria-label="Slide 2" />
-                <span className="dot" aria-label="Slide 3" />
-              </div>
             </div>
 
             <div className="hero-benefits">

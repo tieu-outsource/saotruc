@@ -227,8 +227,28 @@ export default function StorePayment() {
                     />
                     <div className="qr-watermark">
                       <svg width="40" height="40" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-                        <path d="M12 52L52 12" stroke="#b89047" strokeWidth="4" />
-                        <path d="M12 12L52 52" stroke="#b89047" strokeWidth="4" />
+                        <g transform="rotate(-45 32 32)">
+                          <rect x="10" y="27" width="44" height="10" rx="5" stroke="#976b2c" strokeWidth="3" />
+                          <line x1="18.5" y1="27" x2="18.5" y2="37" stroke="#976b2c" strokeWidth="2" strokeLinecap="round" />
+                          <circle cx="15" cy="32" r="1.6" fill="#976b2c" />
+                          <circle cx="23" cy="32" r="1.6" fill="#976b2c" />
+                          <circle cx="28" cy="32" r="1.6" fill="#976b2c" />
+                          <circle cx="33" cy="32" r="1.6" fill="#976b2c" />
+                          <circle cx="38" cy="32" r="1.6" fill="#976b2c" />
+                          <circle cx="43" cy="32" r="1.6" fill="#976b2c" />
+                          <circle cx="48" cy="32" r="1.6" fill="#976b2c" />
+                        </g>
+                        <g transform="rotate(45 32 32)">
+                          <rect x="10" y="27" width="44" height="10" rx="5" stroke="#976b2c" strokeWidth="3" />
+                          <line x1="18.5" y1="27" x2="18.5" y2="37" stroke="#976b2c" strokeWidth="2" strokeLinecap="round" />
+                          <circle cx="15" cy="32" r="1.6" fill="#976b2c" />
+                          <circle cx="23" cy="32" r="1.6" fill="#976b2c" />
+                          <circle cx="28" cy="32" r="1.6" fill="#976b2c" />
+                          <circle cx="33" cy="32" r="1.6" fill="#976b2c" />
+                          <circle cx="38" cy="32" r="1.6" fill="#976b2c" />
+                          <circle cx="43" cy="32" r="1.6" fill="#976b2c" />
+                          <circle cx="48" cy="32" r="1.6" fill="#976b2c" />
+                        </g>
                       </svg>
                     </div>
                   </div>
