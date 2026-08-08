@@ -1,39 +1,10 @@
-export const SOCIALS = [
-  {
-    platform: "YouTube",
-    handle: "Kênh sáo Hồng Việt",
-    btn: "XEM KÊNH",
-    href: "https://youtube.com",
-    className: "youtube",
-    icon: "fa-brands fa-youtube",
-  },
-  {
-    platform: "Fanpage Facebook",
-    handle: "Hồng Việt Sáo Trúc",
-    btn: "THEO DÕI",
-    href: "https://facebook.com",
-    className: "facebook",
-    icon: "fa-brands fa-facebook-f",
-  },
-  {
-    platform: "TikTok",
-    handle: "@hongvietsao",
-    btn: "THEO DÕI",
-    href: "https://tiktok.com",
-    className: "tiktok",
-    icon: "fa-brands fa-tiktok",
-  },
-  {
-    platform: "Instagram",
-    handle: "@hongviet.music",
-    btn: "THEO DÕI",
-    href: "https://instagram.com",
-    className: "instagram",
-    icon: "fa-brands fa-instagram",
-  },
-];
+import { cms } from "@/lib/reader";
+import { socialLink } from "@/lib/socials";
 
-export default function Socials() {
+export default async function Socials() {
+  const settings = await cms.settings();
+  const socials = settings?.socials ?? [];
+
   return (
     <section className="socials-section">
       <div className="section-divider">
@@ -44,26 +15,29 @@ export default function Socials() {
 
       <div className="socials">
         <div className="socials-grid">
-          {SOCIALS.map((social) => (
-            <a
-              key={social.platform}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`social-card ${social.className}`}
-            >
-              <div className="social-icon-wrapper" aria-hidden="true">
-                <i className={social.icon} />
-              </div>
-              <div className="social-info">
-                <div className="social-platform">{social.platform}</div>
-                <div className="social-handle">{social.handle}</div>
-              </div>
-              <button className="social-btn" tabIndex={-1}>
-                {social.btn}
-              </button>
-            </a>
-          ))}
+          {socials.map((social) => {
+            const meta = socialLink(social.network);
+            return (
+              <a
+                key={social.network}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`social-card ${meta.className}`}
+              >
+                <div className="social-icon-wrapper" aria-hidden="true">
+                  <i className={meta.icon} />
+                </div>
+                <div className="social-info">
+                  <div className="social-platform">{meta.platform}</div>
+                  <div className="social-handle">{social.handle}</div>
+                </div>
+                <button className="social-btn" tabIndex={-1}>
+                  {social.btn}
+                </button>
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>

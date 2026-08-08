@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import StorePayment from "@/components/StorePayment";
 import Footer from "@/components/Footer";
+import { cms } from "@/lib/reader";
+import type { DocumentItem } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Mua Tài Liệu Sáo Trúc - Hồng Việt",
@@ -9,7 +11,25 @@ export const metadata: Metadata = {
     "Mua giáo trình sáo trúc cơ bản, nâng cao và sheet nhạc cảm âm chuẩn từ Hồng Việt Sáo Trúc.",
 };
 
-export default function TailieuPage() {
+export default async function TailieuPage() {
+  const [store, contact] = await Promise.all([
+    cms.storeItems(),
+    cms.contactSettings(),
+  ]);
+  const items: DocumentItem[] = [...store]
+    .sort((a, b) => (a.entry.order ?? 0) - (b.entry.order ?? 0))
+    .map((s) => ({
+      id: s.slug,
+      title: s.entry.title,
+      price: s.entry.price,
+      code: s.entry.code ?? "",
+      badge: s.entry.badge ?? undefined,
+      coverClass: s.entry.coverClass ?? undefined,
+      coverIcon: s.entry.coverIcon ?? "",
+      coverTag: s.entry.coverTag ?? "",
+      desc: s.entry.desc ?? "",
+    }));
+
   return (
     <>
       <Header activeHome={false} />
@@ -37,10 +57,10 @@ export default function TailieuPage() {
             </p>
           </div>
 
-          <StorePayment />
+          <StorePayment items={items} />
         </section>
       </main>
-      <Footer />
+      <Footer settings={contact} />
     </>
   );
 }

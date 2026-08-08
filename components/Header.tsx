@@ -5,10 +5,10 @@ import Logo from "./Logo";
 
 const NAV_LINKS = [
   { href: "/#about", label: "Giới thiệu" },
-  { href: "/#classes", label: "Lớp học" },
+  { href: "/lophoc", label: "Lớp học" },
   { href: "/#products", label: "Sản phẩm" },
   { href: "/#services", label: "Dịch vụ" },
-  { href: "/#news", label: "Tin tức" },
+  { href: "/tin-tuc", label: "Tin tức" },
   { href: "/#contact", label: "Liên hệ" },
 ];
 

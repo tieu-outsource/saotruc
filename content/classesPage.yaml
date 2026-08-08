@@ -1,0 +1,11 @@
+intro: "Phương pháp bài bản, dễ hiểu cùng đội ngũ giáo viên chuyên nghiệp, tận tâm — đồng hành cùng học viên trên toàn quốc trên hành trình chinh phục cây sáo và âm nhạc dân tộc."
+formats:
+  - icon: "fa-solid fa-house-user"
+    title: "GIA SƯ TẠI NHÀ"
+    desc: "Giáo viên đến tận nhà, lịch học linh hoạt theo thời gian của bạn."
+  - icon: "fa-solid fa-building-columns"
+    title: "HỌC TẠI TRUNG TÂM"
+    desc: "Học trực tiếp tại trung tâm với cơ sở vật chất đầy đủ, môi trường chuyên nghiệp."
+  - icon: "fa-solid fa-laptop"
+    title: "HỌC ONLINE 1 KÈM 1"
+    desc: "Học online trực tuyến 1 kèm 1, phù hợp học viên ở xa trên toàn quốc."

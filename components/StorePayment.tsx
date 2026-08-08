@@ -2,63 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 
-type DocumentItem = {
-  id: string;
-  title: string;
-  price: number;
-  code: string;
-  badge?: string;
-  coverClass?: string;
-  coverIcon: string;
-  coverTag: string;
-  desc: string;
-};
+import type { DocumentItem } from "@/lib/types";
 
-export const STORE_ITEMS: DocumentItem[] = [
-  {
-    id: "giaotrinh-basic",
-    title: "Giáo Trình Sáo Trúc Cơ Bản ABC",
-    price: 150000,
-    code: "GT_SAOTRUC_CB",
-    badge: "Bán chạy",
-    coverIcon: "fa-solid fa-book-open",
-    coverTag: "HỒNG VIỆT",
-    desc: "Tài liệu lý thuyết nhập môn chi tiết dành cho người chưa biết gì. Bao gồm cách lấy hơi, thế bấm các nốt nhạc trên sáo 6 lỗ & 10 lỗ, kèm 20 bài tập thực hành cảm âm cơ bản.",
-  },
-  {
-    id: "giaotrinh-advanced",
-    title: "Giáo Trình Sáo Trúc Nâng Cao",
-    price: 300000,
-    code: "GT_SAOTRUC_NC",
-    badge: "Chuyên sâu",
-    coverClass: "premium",
-    coverIcon: "fa-solid fa-graduation-cap",
-    coverTag: "NÂNG CAO",
-    desc: "Huấn luyện kỹ thuật ngón, rung hơi, láy, vuốt, tăng tốc ngón và kỹ xảo thổi sáo nghệ thuật. Tặng kèm bộ 10 bản beat nhạc đệm chuẩn phòng thu độc quyền để luyện tập.",
-  },
-  {
-    id: "sheet-longme",
-    title: "Sheet & Cảm âm: Lòng Mẹ",
-    price: 50000,
-    code: "SHEET_LONG_ME",
-    coverClass: "sheet",
-    coverIcon: "fa-solid fa-music",
-    coverTag: "SOLO SHEET",
-    desc: "Bản ký âm nốt nhạc kết hợp cảm âm chi tiết (dành cho sáo trúc Đô C5 & Sol Trầm G4). Giai điệu mượt mà, đầy cảm xúc, thích hợp trình diễn trong các sự kiện gia đình.",
-  },
-  {
-    id: "sheet-tayvuong",
-    title: "Sheet & Cảm âm: Tây Vương Nữ Quốc",
-    price: 50000,
-    code: "SHEET_TAY_VUONG",
-    coverClass: "sheet",
-    coverIcon: "fa-solid fa-music",
-    coverTag: "HOT TREND",
-    desc: "Bản phối cảm âm thần sầu nhạc phim Tây Du Ký. Ghi chú rõ ràng từng đoạn luyến láy, vuốt nốt giúp người chơi lột tả được vẻ u sầu, tha thiết đặc trưng của bài nhạc.",
-  },
-];
 
-export default function StorePayment() {
+export default function StorePayment({ items }: { items: DocumentItem[] }) {
   const [current, setCurrent] = useState<DocumentItem | null>(null);
   const [step, setStep] = useState<1 | 2>(1);
   const [statusText, setStatusText] = useState("Đang chờ quét mã chuyển khoản...");
@@ -128,7 +75,7 @@ export default function StorePayment() {
     <>
       <div className="store-container" style={{ maxWidth: 1200, margin: "0 auto 100px", padding: "0 20px" }}>
         <div className="store-grid">
-          {STORE_ITEMS.map((item) => (
+          {items.map((item) => (
             <article className="store-card" key={item.id}>
               {item.badge && <div className="store-card-badge">{item.badge}</div>}
               <div className="store-cover-wrapper">

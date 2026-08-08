@@ -2,18 +2,27 @@
 
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
-import { SOCIALS } from "./Socials";
+import { socialLink } from "@/lib/socials";
+import type { ContactSettings } from "@/lib/types";
 
-const PHONE_RAW = "0382910471";
-const PHONE_DISPLAY = "0382 910 471";
+const FALLBACK: ContactSettings = {
+  phoneRaw: "0382910471",
+  phoneDisplay: "0382 910 471",
+  zalo: "0382910471",
+  socials: [],
+};
 
 export default function ContactModal({
   open,
   onClose,
+  settings,
 }: {
   open: boolean;
   onClose: () => void;
+  settings?: ContactSettings;
 }) {
+  const contact = settings ?? FALLBACK;
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -53,19 +62,19 @@ export default function ContactModal({
         <div className="contact-modal-list">
           <a
             className="contact-modal-item"
-            href={`tel:+84${PHONE_RAW.slice(1)}`}
+            href={`tel:+84${contact.phoneRaw.replace(/^0/, "")}`}
           >
             <span className="contact-modal-icon">
               <i className="fa-solid fa-phone" aria-hidden="true" />
             </span>
             <span className="contact-modal-text">
               <span className="contact-modal-label">Hotline tư vấn</span>
-              <span className="contact-modal-value">{PHONE_DISPLAY}</span>
+              <span className="contact-modal-value">{contact.phoneDisplay}</span>
             </span>
           </a>
           <a
             className="contact-modal-item"
-            href={`https://zalo.me/${PHONE_RAW}`}
+            href={`https://zalo.me/${contact.zalo}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -77,23 +86,26 @@ export default function ContactModal({
               <span className="contact-modal-value">Chat với Hồng Việt</span>
             </span>
           </a>
-          {SOCIALS.map((social) => (
-            <a
-              key={social.platform}
-              className="contact-modal-item"
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="contact-modal-icon">
-                <i className={social.icon} aria-hidden="true" />
-              </span>
-              <span className="contact-modal-text">
-                <span className="contact-modal-label">{social.platform}</span>
-                <span className="contact-modal-value">{social.handle}</span>
-              </span>
-            </a>
-          ))}
+          {contact.socials.map((social) => {
+            const meta = socialLink(social.network);
+            return (
+              <a
+                key={social.network}
+                className="contact-modal-item"
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="contact-modal-icon">
+                  <i className={meta.icon} aria-hidden="true" />
+                </span>
+                <span className="contact-modal-text">
+                  <span className="contact-modal-label">{meta.platform}</span>
+                  <span className="contact-modal-value">{social.handle}</span>
+                </span>
+              </a>
+            );
+          })}
         </div>
       </div>
     </div>,

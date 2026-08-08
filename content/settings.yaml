@@ -1,0 +1,34 @@
+heroTitle: Kết nối tâm hồn
+heroAccent: Qua từng thanh sáo
+heroDescription: >-
+  Dạy học – Biểu diễn – Sản phẩm & Dịch vụ chuyên nghiệp về sáo trúc và âm nhạc
+  dân tộc.
+heroBenefits:
+  - icon: fa-solid fa-music
+    text: Phương pháp bài bản, dễ hiểu
+  - icon: fa-solid fa-user
+    text: Giáo viên chuyên nghiệp
+  - icon: fa-solid fa-star
+    text: Học viên trên toàn quốc
+  - icon: fa-solid fa-heart
+    text: Đam mê – Tận tâm – Truyền cảm hứng
+phoneRaw: '0382910471'
+phoneDisplay: 0382 910 471
+zalo: '0382910471'
+socials:
+  - network: youtube
+    handle: Kênh sáo Hồng Việt
+    btn: XEM KÊNH
+    href: https://youtube.com
+  - network: facebook
+    handle: Hồng Việt Sáo Trúc
+    btn: THEO DÕI
+    href: https://facebook.com
+  - network: tiktok
+    handle: '@hongvietsao'
+    btn: THEO DÕI
+    href: https://tiktok.com
+  - network: instagram
+    handle: '@hongviet.music'
+    btn: THEO DÕI
+    href: https://instagram.com

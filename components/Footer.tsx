@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import ContactModal from "./ContactModal";
+import type { ContactSettings } from "@/lib/types";
 
-export default function Footer() {
+export default function Footer({ settings }: { settings?: ContactSettings }) {
   const [showContact, setShowContact] = useState(false);
 
   return (
@@ -32,7 +33,11 @@ export default function Footer() {
           LIÊN HỆ TƯ VẤN
         </button>
       </div>
-      <ContactModal open={showContact} onClose={() => setShowContact(false)} />
+      <ContactModal
+        open={showContact}
+        onClose={() => setShowContact(false)}
+        settings={settings}
+      />
     </footer>
   );
 }

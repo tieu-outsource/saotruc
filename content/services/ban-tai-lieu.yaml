@@ -1,0 +1,18 @@
+num: "2.5"
+title: "BÁN TÀI LIỆU"
+items:
+  - "Giáo trình"
+  - "Sheet nhạc"
+nestedItems:
+  - parent: "Giáo trình"
+    children:
+      - "Giáo trình ABC cơ bản"
+      - "Giáo trình nâng cao"
+  - parent: "Sheet nhạc"
+    children:
+      - "Chuyển soạn theo yêu cầu"
+priceTitle: "Sheet nhạc"
+priceAmount: "100.000đ / sheet"
+btnLabel: "XEM NGAY"
+btnHref: "/tailieu"
+bg: tailieu.avif

@@ -1,9 +1,11 @@
+import { cms } from "@/lib/reader";
+
 type ServiceCard = {
   bg: string;
   num: string;
   title: string;
-  items: string[];
-  nestedItems?: Record<string, string[]>;
+  items: readonly string[];
+  nestedItems?: Record<string, readonly string[]>;
   priceTitle?: string;
   priceAmount?: string;
   giftNote?: string;
@@ -12,92 +14,29 @@ type ServiceCard = {
   btnId?: string;
 };
 
-const SERVICES: ServiceCard[] = [
-  {
-    num: "2.1",
-    bg: "lophoc.avif",
-    title: "LỚP HỌC CÁC BỘ MÔN",
-    items: ["Sáo trúc", "Dizi", "Sáo nứa", "Sáo mèo", "Và các bộ môn dân tộc khác"],
-    btnLabel: "XEM CHI TIẾT",
-    btnId: "btn-service-2.1",
-  },
-  {
-    num: "2.2",
-    bg: "dangkykhoahoc.avif",
-    title: "ĐĂNG KÍ LỚP HỌC",
-    items: ["Gia sư tại nhà", "Học trực tiếp tại trung tâm", "Học online 1 kèm 1"],
-    btnLabel: "ĐĂNG KÝ NGAY",
-    btnId: "btn-service-2.2",
-  },
-  {
-    num: "2.3",
-    bg: "ban_sao.avif",
-    title: "BÁN CÁC LOẠI SÁO",
-    items: ["Sáo trúc cao cấp", "Sáo dizi", "Sáo nứa, sáo mèo", "Phụ kiện sáo"],
-    btnLabel: "MUA NGAY",
-    btnId: "btn-service-2.3",
-  },
-  {
-    num: "2.4",
-    bg: "khoahocquaysan.avif",
-    title: "KHÓA HỌC QUAY SẴN",
-    items: ["Sáo trúc cơ bản", "Sáo trúc nâng cao", "Sáo dizi & sáo nứa"],
-    btnLabel: "XEM CHI TIẾT",
-    btnId: "btn-service-2.4",
-  },
-  {
-    num: "2.5",
-    bg: "tailieu.avif",
-    title: "BÁN TÀI LIỆU",
-    items: [
-      "Giáo trình",
-      "Sheet nhạc",
-    ],
-    nestedItems: {
-      "Giáo trình": ["Giáo trình ABC cơ bản", "Giáo trình nâng cao"],
-      "Sheet nhạc": ["Chuyển soạn theo yêu cầu"],
-    },
-    priceTitle: "Sheet nhạc",
-    priceAmount: "100.000đ / sheet",
-    btnLabel: "XEM NGAY",
-    btnHref: "/tailieu",
-    btnId: "btn-service-2.5",
-  },
-  {
-    num: "2.6",
-    bg: "thuam.avif",
-    title: "DỊCH VỤ THU ÂM, QUAY MV SÁO",
-    items: ["Thu âm chuyên nghiệp", "Quay MV chất lượng cao", "Dựng video, chỉnh màu"],
-    priceTitle: "Gói Full Combo",
-    priceAmount: "2.500.000đ / 1 bài",
-    giftNote: "Học viên học hết khóa 3 tháng được tặng 1 MV làm kỷ niệm",
-  },
-  {
-    num: "2.7",
-    bg: "bookband.avif",
-    title: "BOOKING NGHỆ SĨ THỔI SÁO, BAND NHẠC DÂN TỘC",
-    items: ["Biểu diễn sự kiện", "Hòa tấu, độc tấu sáo", "Ban nhạc dân tộc"],
-    btnLabel: "LIÊN HỆ BOOKING",
-    btnId: "btn-service-2.7",
-  },
-  {
-    num: "2.8",
-    bg: "thuam-chong-nhac.avif",
-    title: "DỊCH VỤ THU ÂM CHỒNG NHẠC THẬT",
-    items: ["Thu âm các nhạc cụ dân tộc kết hợp hiện đại"],
-    nestedItems: {
-      "Thu âm các nhạc cụ dân tộc kết hợp hiện đại": [
-        "Tranh, Sáo, Bầu, Guitar, Đàn tranh,...",
-      ],
-    },
-    priceTitle: "Đơn giá",
-    priceAmount: "500.000đ / 1 bài / 1 nhạc cụ",
-    btnLabel: "LIÊN HỆ NGAY",
-    btnId: "btn-service-2.8",
-  },
-];
+export default async function Services() {
+  const services = await cms.services();
+  const cards: ServiceCard[] = [...services]
+    .sort((a, b) => a.entry.num.localeCompare(b.entry.num, "vi", { numeric: true }))
+    .map((s) => ({
+      bg: s.entry.bg ?? "",
+      num: s.entry.num,
+      title: s.entry.title,
+      items: s.entry.items,
+      nestedItems:
+        s.entry.nestedItems.length > 0
+          ? Object.fromEntries(
+              s.entry.nestedItems.map((n) => [n.parent, n.children])
+            )
+          : undefined,
+      priceTitle: s.entry.priceTitle ?? undefined,
+      priceAmount: s.entry.priceAmount ?? undefined,
+      giftNote: s.entry.giftNote ?? undefined,
+      btnLabel: s.entry.btnLabel ?? undefined,
+      btnHref: s.entry.btnHref ?? undefined,
+      btnId: `btn-service-${s.entry.num}`,
+    }));
 
-export default function Services() {
   return (
     <section id="services" className="services-section">
       <div className="section-divider">
@@ -108,7 +47,7 @@ export default function Services() {
 
       <div className="services">
         <div className="services-grid">
-          {SERVICES.map((card) => (
+          {cards.map((card) => (
             <article key={card.num} className="service-card">
               <div
                 className="card-bg"

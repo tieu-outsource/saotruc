@@ -1,0 +1,11 @@
+num: "2.1"
+title: "LỚP HỌC CÁC BỘ MÔN"
+items:
+  - "Sáo trúc"
+  - "Dizi"
+  - "Sáo nứa"
+  - "Sáo mèo"
+  - "Và các bộ môn dân tộc khác"
+btnLabel: "XEM CHI TIẾT"
+btnHref: "/lophoc"
+bg: lophoc.avif
