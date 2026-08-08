@@ -1,20 +1,10 @@
 num: '2.8'
 title: DỊCH VỤ THU ÂM CHỒNG NHẠC THẬT
-content:
-  - type: paragraph
-    children:
-      - type: text
-        text: Thu âm các nhạc cụ dân tộc kết hợp hiện đại
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Tranh, Sáo, Bầu, Guitar, Đàn tranh,...
+content: |-
+  Thu âm các nhạc cụ dân tộc kết hợp hiện đại:
+  - Tranh, Sáo, Đàn Bầu
+  - Guitar, Đàn tranh
 priceTitle: Đơn giá
 priceAmount: 500.000đ / 1 bài / 1 nhạc cụ
 btnLabel: LIÊN HỆ NGAY
-bg: thuam-chong-nhac.avif
+btnHref: "/?topic=Tư vấn dịch vụ thu âm chồng nhạc thật#register"

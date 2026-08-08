@@ -44,7 +44,7 @@ export async function POST(req: Request) {
   }
 
   const lines = [
-    "🎵 *Liên hệ mới từ website Hồng Việt Sáo Trúc*",
+    "🎵 *Liên hệ mới từ website Sáo trúc Âu Cơ*",
     "",
     `👤 *Họ tên:* ${name}`,
     `📞 *Số điện thoại:* ${phone}`,

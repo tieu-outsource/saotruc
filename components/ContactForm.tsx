@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -19,6 +19,79 @@ export default function ContactForm({
   const [message, setMessage] = useState("");
   const [website, setWebsite] = useState(""); // honeypot
   const [status, setStatus] = useState<Status>("idle");
+
+  useEffect(() => {
+    function getTopicFromUrl() {
+      if (typeof window === "undefined") return "";
+      const searchParams = new URLSearchParams(window.location.search);
+      let val =
+        searchParams.get("topic") ||
+        searchParams.get("message") ||
+        searchParams.get("service") ||
+        searchParams.get("course");
+      if (val) return val;
+
+      const hash = window.location.hash;
+      if (hash.includes("?")) {
+        const hashQuery = hash.slice(hash.indexOf("?"));
+        const hashParams = new URLSearchParams(hashQuery);
+        val =
+          hashParams.get("topic") ||
+          hashParams.get("message") ||
+          hashParams.get("service") ||
+          hashParams.get("course");
+        if (val) return val;
+      }
+      return "";
+    }
+
+    const updateTopic = () => {
+      const topic = getTopicFromUrl();
+      if (topic) {
+        setMessage(topic);
+      }
+    };
+
+    updateTopic();
+
+    const handleHashOrState = () => {
+      setTimeout(updateTopic, 50);
+    };
+
+    window.addEventListener("popstate", handleHashOrState);
+    window.addEventListener("hashchange", handleHashOrState);
+
+    const handleClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement)?.closest("a");
+      if (target) {
+        const href = target.getAttribute("href") || "";
+        if (href.includes("topic=") || href.includes("message=")) {
+          try {
+            const url = new URL(href, window.location.origin);
+            const topic =
+              url.searchParams.get("topic") || url.searchParams.get("message");
+            if (topic) {
+              setMessage(topic);
+              return;
+            }
+          } catch {
+            const match = href.match(/(?:topic|message)=([^&]+)/);
+            if (match && match[1]) {
+              setMessage(decodeURIComponent(match[1]));
+            }
+          }
+        }
+      }
+    };
+
+    document.addEventListener("click", handleClick);
+
+    return () => {
+      window.removeEventListener("popstate", handleHashOrState);
+      window.removeEventListener("hashchange", handleHashOrState);
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -75,7 +148,7 @@ export default function ContactForm({
               <li>
                 <i className="fa-solid fa-envelope" aria-hidden="true" />
                 Hoặc gửi tin nhắn qua biểu mẫu, thông tin sẽ được chuyển trực
-                tiếp đến Hồng Việt
+                tiếp đến Sáo trúc Âu Cơ
               </li>
             </ul>
           </div>
@@ -140,7 +213,7 @@ export default function ContactForm({
             {status === "success" && (
               <p className="contact-status contact-status-success" role="status">
                 <i className="fa-solid fa-circle-check" aria-hidden="true" />
-                Đã gửi thành công! Hồng Việt sẽ liên hệ bạn trong thời gian sớm
+                Đã gửi thành công! Sáo trúc Âu Cơ sẽ liên hệ bạn trong thời gian sớm
                 nhất.
               </p>
             )}

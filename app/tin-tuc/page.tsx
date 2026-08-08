@@ -7,10 +7,10 @@ import { cms } from "@/lib/reader";
 export async function generateMetadata(): Promise<Metadata> {
   const page = await cms.tinTucPage();
   return {
-    title: page?.seoTitle ?? "Tin Tức - Hồng Việt Sáo Trúc",
+    title: page?.seoTitle ?? "Tin Tức - Sáo trúc Âu Cơ",
     description:
       page?.seoDescription ??
-      "Tin tức, bài viết về sáo trúc, âm nhạc dân tộc và các hoạt động của Hồng Việt Sáo Trúc.",
+      "Tin tức, bài viết về sáo trúc, âm nhạc dân tộc và các hoạt động của Sáo trúc Âu Cơ.",
   };
 }
 
@@ -43,7 +43,7 @@ export default async function TinTucPage() {
           <div className="news-intro">
             <p>
               {page?.intro ??
-                "Những bài viết, chia sẻ về sáo trúc và âm nhạc dân tộc từ Hồng Việt Sáo Trúc."}
+                "Những bài viết, chia sẻ về sáo trúc và âm nhạc dân tộc từ Sáo trúc Âu Cơ."}
             </p>
           </div>
 

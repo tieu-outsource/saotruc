@@ -12,6 +12,10 @@ export type SocialLink = {
   btn: string;
   href: string;
 };
+export type FooterCustomField = {
+  label: string;
+  value: string;
+};
 
 export type SiteSettings = {
   phoneRaw: string;
@@ -21,6 +25,9 @@ export type SiteSettings = {
   footerMotto: string;
   footerSubtitle: string;
   footerCtaLabel: string;
+  footerBottomText?: string;
+  footerCustomFields?: FooterCustomField[];
+  footerCopyright?: string;
   contactTitle: string;
   contactIntro: string;
   contactSubmitLabel: string;

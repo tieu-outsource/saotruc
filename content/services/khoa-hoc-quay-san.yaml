@@ -1,32 +1,9 @@
 num: '2.4'
 title: KHÓA HỌC QUAY SẴN
-content:
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Sáo trúc cơ bản
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Sáo trúc nâng cao
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Sáo dizi & sáo nứa
+content: |-
+  Sáo trúc cơ bản
+  Sáo trúc nâng cao
+  Sáo dizi & sáo nứa
 btnLabel: XEM CHI TIẾT
+btnHref: "/?topic=Đăng ký khóa học quay sẵn#register"
 bg: khoahocquaysan.avif

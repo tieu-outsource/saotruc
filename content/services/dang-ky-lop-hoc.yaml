@@ -1,32 +1,9 @@
 num: '2.2'
 title: ĐĂNG KÍ LỚP HỌC
-content:
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Gia sư tại nhà
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Học trực tiếp tại trung tâm
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Học online 1 kèm 1
+content: |-
+  Gia sư tại nhà
+  Học trực tiếp tại trung tâm
+  Học online 1 kèm 1
 btnLabel: ĐĂNG KÝ NGAY
+btnHref: "/?topic=Đăng ký lớp học sáo trúc#register"
 bg: dangkykhoahoc.avif

@@ -11,7 +11,7 @@ export default function Logo() {
         />
       </div>
       <div className="logo-text">
-        <span className="logo-title">HỒNG VIỆT</span>
+        <span className="logo-title">SÁO TRÚC ÂU CƠ</span>
         <span className="logo-subtitle">SÁO TRÚC & ÂM NHẠC DÂN TỘC</span>
       </div>
     </>

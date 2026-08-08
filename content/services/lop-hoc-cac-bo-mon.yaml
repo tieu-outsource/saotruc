@@ -1,51 +1,11 @@
 num: '2.1'
 title: LỚP HỌC CÁC BỘ MÔN
-content:
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Sáo trúc
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Dizi
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Sáo nứa
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Sáo mèo
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Và các bộ môn dân tộc khác
+content: |-
+  Sáo trúc
+  Dizi
+  Sáo nứa
+  Sáo mèo
+  Và các bộ môn dân tộc khác
 btnLabel: XEM CHI TIẾT
 btnHref: /lophoc
 bg: lophoc.avif

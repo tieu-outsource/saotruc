@@ -23,9 +23,12 @@ const FA_ICONS = [
 
 
 export default config({
-  storage: { kind: "github", repo: "tieu-outsource/saotruc" },
+  storage:
+    process.env.NODE_ENV === "development"
+      ? { kind: "local" }
+      : { kind: "github", repo: "tieu-outsource/saotruc" },
   ui: {
-    brand: { name: "Hồng Việt Sáo Trúc" },
+    brand: { name: "Sáo trúc Âu Cơ" },
   },
   collections: {
     services: collection({
@@ -40,12 +43,7 @@ export default config({
           name: { label: "Tiêu đề (VD: LỚP HỌC CÁC BỘ MÔN)" },
           slug: { label: "Slug (đường dẫn, không dấu)" },
         }),
-        content: fields.document({
-          label: "Nội dung (viết tự do)",
-          formatting: true,
-          links: true,
-          dividers: true,
-        }),
+        content: fields.text({ label: "Nội dung (viết tự do)", multiline: true }),
         priceTitle: fields.text({ label: "Tiêu đề giá (VD: Sheet nhạc)" }),
         priceAmount: fields.text({ label: "Đơn giá (VD: 100.000đ / sheet)" }),
         giftNote: fields.text({ label: "Ghi chú quà tặng" }),
@@ -111,7 +109,7 @@ export default config({
           ],
           defaultValue: "fa-solid fa-book-open",
         }),
-        coverTag: fields.text({ label: "Chữ trên bìa (VD: HỒNG VIỆT)" }),
+        coverTag: fields.text({ label: "Chữ trên bìa (VD: ÂU CƠ)" }),
         desc: fields.text({ label: "Mô tả", multiline: true }),
       },
     }),
@@ -201,6 +199,26 @@ export default config({
         footerMotto: fields.text({ label: "Châm ngôn chân trang (VD: ĐAM MÊ LÀM NÊN GIÁ TRỊ...)" }),
         footerSubtitle: fields.text({ label: "Câu phụ chân trang" }),
         footerCtaLabel: fields.text({ label: "Nhãn nút chân trang (VD: LIÊN HỆ TƯ VẤN)" }),
+        footerBottomText: fields.text({
+          label: "Nội dung tuỳ chỉnh dưới chân trang (viết tự do: địa chỉ, SĐT, email...)",
+          multiline: true,
+        }),
+        footerCustomFields: fields.array(
+          fields.object(
+            {
+              label: fields.text({ label: "Nhãn (VD: Địa chỉ, Email, SĐT, Giờ làm việc)" }),
+              value: fields.text({ label: "Nội dung" }),
+            },
+            { label: "Thông tin tuỳ chỉnh" }
+          ),
+          {
+            label: "Danh sách thông tin dưới chân trang (địa chỉ, SĐT, email...)",
+            itemLabel: (p) => p.fields.label.value ?? "Thông tin",
+          }
+        ),
+        footerCopyright: fields.text({
+          label: "Bản quyền (VD: © 2026 Sáo trúc Âu Cơ. Tất cả quyền được bảo lưu.)",
+        }),
         contactTitle: fields.text({ label: "Tiêu đề mục liên hệ (VD: LIÊN HỆ & ĐĂNG KÝ HỌC)" }),
         contactIntro: fields.text({ label: "Mô tả mục liên hệ", multiline: true }),
         contactSubmitLabel: fields.text({ label: "Nhãn nút gửi biểu mẫu (VD: GỬI ĐĂNG KÝ)" }),

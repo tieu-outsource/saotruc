@@ -8,10 +8,10 @@ import type { DocumentItem } from "@/lib/types";
 export async function generateMetadata(): Promise<Metadata> {
   const page = await cms.tailieuPage();
   return {
-    title: page?.seoTitle ?? "Mua Tài Liệu Sáo Trúc - Hồng Việt",
+    title: page?.seoTitle ?? "Mua Tài Liệu Sáo Trúc - Sáo trúc Âu Cơ",
     description:
       page?.seoDescription ??
-      "Mua giáo trình sáo trúc cơ bản, nâng cao và sheet nhạc cảm âm chuẩn từ Hồng Việt Sáo Trúc.",
+      "Mua giáo trình sáo trúc cơ bản, nâng cao và sheet nhạc cảm âm chuẩn từ Sáo trúc Âu Cơ.",
   };
 }
 
@@ -57,7 +57,7 @@ export default async function TailieuPage() {
           >
             <p style={{ color: "var(--text-secondary)", fontSize: "1.05rem" }}>
               {page?.intro ??
-                "Tổng hợp tài liệu nhạc lý, giáo trình thổi sáo từ cơ bản đến nâng cao cùng hàng ngàn bản sheet nhạc, cảm âm chuẩn được biên soạn độc quyền bởi Hồng Việt."}
+                "Tổng hợp tài liệu nhạc lý, giáo trình thổi sáo từ cơ bản đến nâng cao cùng hàng ngàn bản sheet nhạc, cảm âm chuẩn được biên soạn độc quyền bởi Sáo trúc Âu Cơ."}
             </p>
           </div>
 

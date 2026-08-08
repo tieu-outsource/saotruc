@@ -54,8 +54,15 @@ export const cms = {
       footerMotto: s?.footerMotto ?? "ĐAM MÊ LÀM NÊN GIÁ TRỊ - CHẤT LƯỢNG TẠO NÊN UY TÍN",
       footerSubtitle: s?.footerSubtitle ?? "Đồng hành cùng bạn trên hành trình chạm đến âm nhạc truyền thống.",
       footerCtaLabel: s?.footerCtaLabel ?? "LIÊN HỆ TƯ VẤN",
+      footerBottomText: s?.footerBottomText ?? "",
+      footerCustomFields: (s?.footerCustomFields ?? []).map((x) => ({
+        label: x.label ?? "",
+        value: x.value ?? "",
+      })),
+      footerCopyright:
+        s?.footerCopyright ?? "© 2026 Sáo trúc Âu Cơ. Tất cả quyền được bảo lưu.",
       contactTitle: s?.contactTitle ?? "LIÊN HỆ & ĐĂNG KÝ HỌC",
-      contactIntro: s?.contactIntro ?? "Để lại thông tin, Hồng Việt sẽ liên hệ tư vấn khóa học, mua sáo, tài liệu hoặc dịch vụ thu âm, biểu diễn trong thời gian sớm nhất.",
+      contactIntro: s?.contactIntro ?? "Để lại thông tin, Sáo trúc Âu Cơ sẽ liên hệ tư vấn khóa học, mua sáo, tài liệu hoặc dịch vụ thu âm, biểu diễn trong thời gian sớm nhất.",
       contactSubmitLabel: s?.contactSubmitLabel ?? "GỬI ĐĂNG KÝ",
       pinnedPosts: pinned,
     };

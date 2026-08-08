@@ -90,7 +90,7 @@ export default function ContactModal({
             </span>
             <span className="contact-modal-text">
               <span className="contact-modal-label">Zalo</span>
-              <span className="contact-modal-value">Chat với Hồng Việt</span>
+              <span className="contact-modal-value">Chat với Sáo trúc Âu Cơ</span>
             </span>
           </a>
           {contact.socials.map((social) => {

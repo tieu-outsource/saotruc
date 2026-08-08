@@ -1,11 +1,10 @@
 import { cms } from "@/lib/reader";
-import { DocumentRenderer } from "@keystatic/core/renderer";
 
 type ServiceCard = {
   bg: string;
   num: string;
   title: string;
-  content: unknown;
+  content: string;
   priceTitle?: string;
   priceAmount?: string;
   giftNote?: string;
@@ -14,12 +13,29 @@ type ServiceCard = {
   btnId?: string;
 };
 
-/** Reader returns the document as an array of block nodes (the root's children). */
-const toDocument = (content: unknown) =>
-  (Array.isArray(content)
-    ? content
-    : (content as { children?: unknown } | null)?.children ?? []) as any;
+function renderServiceContent(content?: string | null) {
+  if (!content) return null;
+  const lines = content
+    .split("\n")
+    .map((l) => l.trim())
+    .filter(Boolean);
+  if (lines.length === 0) return null;
 
+  return (
+    <ul className="service-list">
+      {lines.map((line, idx) => {
+        const isSubItem =
+          line.startsWith("- ") || line.startsWith("* ") || line.startsWith("• ");
+        const text = isSubItem ? line.slice(2).trim() : line;
+        return (
+          <li key={idx} className={isSubItem ? "service-subitem" : undefined}>
+            {text}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
 export default async function Services() {
   const services = await cms.services();
   const cards: ServiceCard[] = [...services]
@@ -28,7 +44,7 @@ export default async function Services() {
       bg: s.entry.bg ?? "",
       num: s.entry.num,
       title: s.entry.title,
-      content: s.entry.content ?? null,
+      content: s.entry.content ?? "",
       priceTitle: s.entry.priceTitle ?? undefined,
       priceAmount: s.entry.priceAmount ?? undefined,
       giftNote: s.entry.giftNote ?? undefined,
@@ -59,9 +75,7 @@ export default async function Services() {
                 <h3 className="service-title">{card.title}</h3>
               </div>
               <div className="service-card-content">
-                <div className="service-doc">
-                  <DocumentRenderer document={toDocument(card.content)} />
-                </div>
+                {renderServiceContent(card.content)}
                 {card.priceTitle && (
                   <div className="price-box">
                     <div className="price-box-title">{card.priceTitle}</div>

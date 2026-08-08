@@ -2,12 +2,12 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Hồng Việt - Sáo Trúc & Âm Nhạc Dân Tộc",
+  title: "Sáo trúc Âu Cơ - Sáo Trúc & Âm Nhạc Dân Tộc",
   description:
-    "Học sáo trúc và âm nhạc dân tộc cùng Hồng Việt. Dạy học, biểu diễn chuyên nghiệp, cung cấp nhạc cụ truyền thống chất lượng cao.",
+    "Học sáo trúc và âm nhạc dân tộc cùng Sáo trúc Âu Cơ. Dạy học, biểu diễn chuyên nghiệp, cung cấp nhạc cụ truyền thống chất lượng cao.",
   keywords:
     "sáo trúc, học sáo trúc, dizi, sáo mèo, âm nhạc dân tộc, nhạc cụ truyền thống, thu âm sáo",
-  authors: [{ name: "Hồng Việt" }],
+  authors: [{ name: "Sáo trúc Âu Cơ" }],
 };
 
 export const viewport: Viewport = {

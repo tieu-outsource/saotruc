@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await cms.post(slug);
   if (!post || !post.published) return {};
   return {
-    title: `${post.title} - Hồng Việt Sáo Trúc`,
+    title: `${post.title} - Sáo trúc Âu Cơ`,
     description: post.excerpt ?? undefined,
   };
 }

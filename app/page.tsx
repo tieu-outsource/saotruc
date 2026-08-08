@@ -54,6 +54,9 @@ export default async function HomePage() {
           </div>
         </section>
 
+        <Services />
+        <Socials />
+
         {pinnedPosts.length > 0 && (
           <section className="pinned-posts" id="news">
             <div className="section-divider">
@@ -91,9 +94,6 @@ export default async function HomePage() {
             </div>
           </section>
         )}
-
-        <Services />
-        <Socials />
         <ContactForm
           title={contact.contactTitle}
           intro={contact.contactIntro}

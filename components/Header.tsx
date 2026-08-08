@@ -37,60 +37,59 @@ export default function Header({ activeHome }: { activeHome?: boolean }) {
   return (
     <header id="site-header" className={scrolled ? "scrolled" : ""}>
       <div className="header-container">
-        <a href="/" className="logo-link" aria-label="Hồng Việt - Trang chủ">
+        <a href="/" className="logo-link" aria-label="Sáo trúc Âu Cơ - Trang chủ">
           <Logo />
         </a>
 
-        <button
-          className="mobile-menu-toggle"
-          id="menu-toggle"
-          aria-label="Toggle Navigation Menu"
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((o) => !o)}
-        >
-          <i className={menuOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars"} />
-        </button>
-
-        <ul
-          className={`nav-menu${menuOpen ? " active" : ""}`}
-          id="nav-menu"
-          style={
-            menuOpen
-              ? {
-                  display: "flex",
-                  flexDirection: "column",
-                  position: "absolute",
-                  top: "100%",
-                  left: 0,
-                  width: "100%",
-                  backgroundColor: "rgba(13, 11, 9, 0.95)",
-                  padding: "20px",
-                  borderBottom: "1px solid var(--border-gold)",
-                }
-              : undefined
-          }
-        >
+        <ul className={`nav-menu${menuOpen ? " active" : ""}`} id="nav-menu">
           <li>
             <a
-              href={home ? "/" : "/"}
+              href="/"
               className={`nav-link${home ? " active" : ""}`}
+              onClick={() => setMenuOpen(false)}
             >
               Trang chủ
             </a>
           </li>
           {NAV_LINKS.map((link) => (
             <li key={link.label}>
-              <a href={link.href} className="nav-link">
+              <a
+                href={link.href}
+                className="nav-link"
+                onClick={() => setMenuOpen(false)}
+              >
                 {link.label}
               </a>
             </li>
           ))}
+          <li className="mobile-nav-cta-item">
+            <a
+              href="/#register"
+              className="mobile-nav-cta"
+              onClick={() => setMenuOpen(false)}
+            >
+              <i className="fa-solid fa-graduation-cap" aria-hidden="true" />
+              ĐĂNG KÝ HỌC NGAY
+            </a>
+          </li>
         </ul>
 
-        <a href="/#register" className="header-cta" id="header-cta-btn">
-          <i className="fa-solid fa-graduation-cap" aria-hidden="true" />
-          ĐĂNG KÝ HỌC
-        </a>
+        <div className="header-actions">
+          <a href="/#register" className="header-cta" id="header-cta-btn">
+            <i className="fa-solid fa-graduation-cap" aria-hidden="true" />
+            <span className="header-cta-text">ĐĂNG KÝ HỌC</span>
+          </a>
+
+          <button
+            className="mobile-menu-toggle"
+            id="menu-toggle"
+            aria-label="Toggle Navigation Menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((o) => !o)}
+          >
+            <i className={menuOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars"} />
+          </button>
+        </div>
       </div>
     </header>
   );

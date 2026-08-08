@@ -1,32 +1,9 @@
 num: '2.7'
 title: BOOKING NGHỆ SĨ THỔI SÁO, BAND NHẠC DÂN TỘC
-content:
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Biểu diễn sự kiện
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Hòa tấu, độc tấu sáo
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Ban nhạc dân tộc
+content: |-
+  Biểu diễn sự kiện
+  Hòa tấu, độc tấu sáo
+  Ban nhạc dân tộc
 btnLabel: LIÊN HỆ BOOKING
+btnHref: "/?topic=Booking nghệ sĩ thổi sáo, band nhạc dân tộc#register"
 bg: bookband.avif

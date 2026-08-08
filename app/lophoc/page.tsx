@@ -9,10 +9,10 @@ import { cms } from "@/lib/reader";
 export async function generateMetadata(): Promise<Metadata> {
   const page = await cms.classesPage();
   return {
-    title: page?.seoTitle ?? "Lớp Học Các Bộ Môn - Hồng Việt Sáo Trúc",
+    title: page?.seoTitle ?? "Lớp Học Các Bộ Môn - Sáo trúc Âu Cơ",
     description:
       page?.seoDescription ??
-      "Lớp học sáo trúc, dizi, sáo nứa, sáo mèo và các bộ môn dân tộc khác tại Hồng Việt Sáo Trúc. Học gia sư tại nhà, trực tiếp tại trung tâm hoặc online 1 kèm 1.",
+      "Lớp học sáo trúc, dizi, sáo nứa, sáo mèo và các bộ môn dân tộc khác tại Sáo trúc Âu Cơ. Học gia sư tại nhà, trực tiếp tại trung tâm hoặc online 1 kèm 1.",
   };
 }
 
@@ -38,7 +38,7 @@ export default async function LophocPage() {
   const pageTitle = classesPage?.title ?? "LỚP HỌC CÁC BỘ MÔN";
   const formatsTitle = classesPage?.formatsTitle ?? "HÌNH THỨC HỌC";
   const ctaLabel = classesPage?.ctaLabel ?? "ĐĂNG KÝ HỌC NGAY";
-  const ctaHref = classesPage?.ctaHref ?? "/#register";
+  const ctaHref = classesPage?.ctaHref ?? "/?topic=Đăng ký lớp học sáo trúc#register";
 
   return (
     <>

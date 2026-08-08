@@ -1,38 +1,11 @@
 num: '2.5'
 title: BÁN TÀI LIỆU
-content:
-  - type: paragraph
-    children:
-      - type: text
-        text: Giáo trình
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Giáo trình ABC cơ bản
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Giáo trình nâng cao
-  - type: paragraph
-    children:
-      - type: text
-        text: Sheet nhạc
-  - type: list
-    listType: unordered
-    children:
-      - type: listItem
-        children:
-          - type: paragraph
-            children:
-              - type: text
-                text: Chuyển soạn theo yêu cầu
+content: |-
+  Giáo trình:
+  - Giáo trình ABC cơ bản
+  - Giáo trình nâng cao
+  Sheet nhạc:
+  - Chuyển soạn theo yêu cầu
 priceTitle: Sheet nhạc
 priceAmount: 100.000đ / sheet
 btnLabel: XEM NGAY

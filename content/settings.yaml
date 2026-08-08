@@ -17,29 +17,37 @@ phoneDisplay: 0382 910 471
 zalo: '0382910471'
 socials:
   - network: youtube
-    handle: Kênh sáo Hồng Việt
+    handle: Kênh sáo Âu Cơ
     btn: XEM KÊNH
     href: https://youtube.com
   - network: facebook
-    handle: Hồng Việt Sáo Trúc
+    handle: Sáo trúc Âu Cơ
     btn: THEO DÕI
     href: https://facebook.com
   - network: tiktok
-    handle: '@hongvietsao'
+    handle: '@sao-truc-au-co'
     btn: THEO DÕI
     href: https://tiktok.com
   - network: instagram
-    handle: '@hongviet.music'
+    handle: '@auco.music'
     btn: THEO DÕI
     href: https://instagram.com
 footerMotto: ĐAM MÊ LÀM NÊN GIÁ TRỊ - CHẤT LƯỢNG TẠO NÊN UY TÍN
 footerSubtitle: Đồng hành cùng bạn trên hành trình chạm đến âm nhạc truyền thống.
 footerCtaLabel: LIÊN HỆ TƯ VẤN
+footerCustomFields:
+  - label: Địa chỉ
+    value: Hà Nội, Việt Nam
+  - label: Hotline / Zalo
+    value: 0382 910 471
+  - label: Email
+    value: saotrucauco@gmail.com
+footerCopyright: © 2026 Sáo trúc Âu Cơ. Tất cả quyền được bảo lưu.
 contactTitle: LIÊN HỆ & ĐĂNG KÝ HỌC
 contactIntro: >-
-  Để lại thông tin, Hồng Việt sẽ liên hệ tư vấn khóa học, mua sáo, tài liệu hoặc
+  Để lại thông tin, Sáo trúc Âu Cơ sẽ liên hệ tư vấn khóa học, mua sáo, tài liệu hoặc
   dịch vụ thu âm, biểu diễn trong thời gian sớm nhất.
 contactSubmitLabel: GỬI ĐĂNG KÝ
 pinnedPosts:
-  - gioi-thieu-ve-hong-viet-sao-truc
-  - cac-lop-hoc-sao-truc-tai-hong-viet
+  - gioi-thieu-ve-sao-truc-au-co
+  - cac-lop-hoc-sao-truc-tai-au-co
