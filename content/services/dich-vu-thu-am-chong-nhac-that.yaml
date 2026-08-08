@@ -1,12 +1,20 @@
-num: "2.8"
-title: "DỊCH VỤ THU ÂM CHỒNG NHẠC THẬT"
-items:
-  - "Thu âm các nhạc cụ dân tộc kết hợp hiện đại"
-nestedItems:
-  - parent: "Thu âm các nhạc cụ dân tộc kết hợp hiện đại"
+num: '2.8'
+title: DỊCH VỤ THU ÂM CHỒNG NHẠC THẬT
+content:
+  - type: paragraph
     children:
-      - "Tranh, Sáo, Bầu, Guitar, Đàn tranh,..."
-priceTitle: "Đơn giá"
-priceAmount: "500.000đ / 1 bài / 1 nhạc cụ"
-btnLabel: "LIÊN HỆ NGAY"
+      - type: text
+        text: Thu âm các nhạc cụ dân tộc kết hợp hiện đại
+  - type: list
+    listType: unordered
+    children:
+      - type: listItem
+        children:
+          - type: paragraph
+            children:
+              - type: text
+                text: Tranh, Sáo, Bầu, Guitar, Đàn tranh,...
+priceTitle: Đơn giá
+priceAmount: 500.000đ / 1 bài / 1 nhạc cụ
+btnLabel: LIÊN HỆ NGAY
 bg: thuam-chong-nhac.avif

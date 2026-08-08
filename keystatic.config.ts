@@ -40,22 +40,12 @@ export default config({
           name: { label: "Tiêu đề (VD: LỚP HỌC CÁC BỘ MÔN)" },
           slug: { label: "Slug (đường dẫn, không dấu)" },
         }),
-        items: fields.array(fields.text({ label: "Mục" }), {
-          label: "Danh sách mục",
-          itemLabel: (p) => p.value ?? "Mục",
+        content: fields.document({
+          label: "Nội dung (viết tự do)",
+          formatting: true,
+          links: true,
+          dividers: true,
         }),
-        nestedItems: fields.array(
-          fields.object(
-            {
-              parent: fields.text({ label: "Mục cha" }),
-              children: fields.array(fields.text({ label: "Mục con" }), {
-                label: "Mục con",
-              }),
-            },
-            { label: "Mục lồng nhau" }
-          ),
-          { label: "Mục lồng nhau (cha → con)" }
-        ),
         priceTitle: fields.text({ label: "Tiêu đề giá (VD: Sheet nhạc)" }),
         priceAmount: fields.text({ label: "Đơn giá (VD: 100.000đ / sheet)" }),
         giftNote: fields.text({ label: "Ghi chú quà tặng" }),
@@ -179,6 +169,10 @@ export default config({
             { label: "Điểm mạnh" }
           ),
           { label: "Điểm mạnh (hero)", itemLabel: (p) => p.fields.text.value ?? "Điểm mạnh" }
+        ),
+        pinnedPosts: fields.array(
+          fields.relationship({ label: "Bài viết ghim", collection: "posts" }),
+          { label: "Bài viết ghim trang chủ", itemLabel: (p) => p.value ?? "Bài viết" }
         ),
         phoneRaw: fields.text({ label: "Số điện thoại gọi ra (VD: +84382910471)" }),
         phoneDisplay: fields.text({ label: "Số điện thoại hiển thị (VD: 0382 910 471)" }),

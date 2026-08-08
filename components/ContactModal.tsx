@@ -16,6 +16,7 @@ const FALLBACK: SiteSettings = {
   contactTitle: "",
   contactIntro: "",
   contactSubmitLabel: "",
+  pinnedPosts: [],
 };
 
 export default function ContactModal({

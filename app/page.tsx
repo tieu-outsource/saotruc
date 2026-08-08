@@ -14,6 +14,7 @@ export default async function HomePage() {
     icon: b.icon,
     text: b.text ?? "",
   }));
+  const pinnedPosts = contact.pinnedPosts ?? [];
 
   return (
     <>
@@ -52,6 +53,44 @@ export default async function HomePage() {
             </div>
           </div>
         </section>
+
+        {pinnedPosts.length > 0 && (
+          <section className="pinned-posts" id="news">
+            <div className="section-divider">
+              <div className="divider-line" aria-hidden="true" />
+              <h2 className="section-divider-title">TIN TỨC NỔI BẬT</h2>
+              <div className="divider-line" aria-hidden="true" />
+            </div>
+            <div className="pinned-posts-grid">
+              {pinnedPosts.map((post) => (
+                <article key={post.slug} className="pinned-post-card">
+                  {post.cover && (
+                    <div className="pinned-post-cover">
+                      <img src={post.cover} alt="" loading="lazy" />
+                    </div>
+                  )}
+                  <div className="pinned-post-content">
+                    <time className="pinned-post-date" dateTime={post.date ?? undefined}>
+                      {post.date ? new Date(post.date).toLocaleDateString("vi-VN") : ""}
+                    </time>
+                    <h3 className="pinned-post-title">
+                      <a href={`/tin-tuc/${post.slug}`}>{post.title}</a>
+                    </h3>
+                    <p className="pinned-post-excerpt">{post.excerpt}</p>
+                    <a href={`/tin-tuc/${post.slug}`} className="pinned-post-link">
+                      Đọc thêm <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <div className="pinned-posts-cta">
+              <a href="/tin-tuc" className="btn btn-outline">
+                XEM TẤT CẢ TIN TỨC
+              </a>
+            </div>
+          </section>
+        )}
 
         <Services />
         <Socials />

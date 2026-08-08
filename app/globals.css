@@ -472,6 +472,79 @@ header#site-header.scrolled {
   line-height: 1.3;
 }
 
+.service-doc {
+  flex-grow: 1;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.service-doc p {
+  margin: 0 0 8px;
+}
+
+.service-doc ul {
+  list-style: none;
+  padding-left: 18px;
+  margin: 8px 0;
+}
+
+.service-doc ul li {
+  position: relative;
+  padding-left: 0;
+  margin-bottom: 4px;
+}
+
+.service-doc ul li::before {
+  content: '•';
+  color: var(--accent-gold);
+  position: absolute;
+  left: -18px;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.service-doc ol {
+  list-style: decimal;
+  padding-left: 22px;
+  margin: 8px 0;
+}
+
+.service-doc li ol,
+.service-doc li ul {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.service-doc blockquote {
+  border-left: 3px solid var(--accent-gold);
+  padding-left: 12px;
+  margin: 8px 0;
+  color: var(--text-secondary);
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.service-doc hr {
+  border: none;
+  border-top: 1px solid var(--border-gold);
+  margin: 12px 0;
+}
+
+.service-doc a {
+  color: var(--accent-gold-light);
+  text-decoration: underline;
+}
+
+.service-doc strong {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.service-doc em {
+  font-style: italic;
+}
+
 
 .service-list {
   list-style: none;
@@ -2053,6 +2126,114 @@ body > footer {
 
 .news-read-more:hover {
   color: var(--accent-gold-light);
+}
+
+/* Pinned Posts section on Home Page */
+.pinned-posts {
+  max-width: 1200px;
+  margin: 0 auto 100px;
+  padding: 0 20px;
+}
+
+.pinned-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.pinned-post-card {
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-gold);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.pinned-post-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-gold-active);
+  box-shadow: 0 15px 35px rgba(151, 107, 44, 0.12), 0 0 2px rgba(151, 107, 44, 0.4);
+}
+
+.pinned-post-cover {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: rgba(13, 11, 9, 0.8);
+}
+
+.pinned-post-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.pinned-post-card:hover .pinned-post-cover img {
+  transform: scale(1.05);
+}
+
+.pinned-post-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.pinned-post-date {
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.pinned-post-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.pinned-post-title a {
+  color: var(--accent-gold-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.pinned-post-title a:hover {
+  color: #fff;
+}
+
+.pinned-post-excerpt {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.pinned-post-link {
+  align-self: flex-start;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent-gold);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.pinned-post-link:hover {
+  color: var(--accent-gold-light);
+  transform: translateX(4px);
+}
+
+.pinned-posts-cta {
+  text-align: center;
 }
 
 /* Bài viết chi tiết */

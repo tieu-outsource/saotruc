@@ -1,9 +1,40 @@
 num: '2.3'
 title: BÁN CÁC LOẠI SÁO
-items:
-  - Sáo trúc cao cấp
-  - Sáo dizi
-  - Sáo nứa, sáo mèo
-  - Phụ kiện sáo
-nestedItems: []
+content:
+  - type: list
+    listType: unordered
+    children:
+      - type: listItem
+        children:
+          - type: paragraph
+            children:
+              - type: text
+                text: Sáo trúc cao cấp
+  - type: list
+    listType: unordered
+    children:
+      - type: listItem
+        children:
+          - type: paragraph
+            children:
+              - type: text
+                text: Sáo dizi
+  - type: list
+    listType: unordered
+    children:
+      - type: listItem
+        children:
+          - type: paragraph
+            children:
+              - type: text
+                text: Sáo nứa, sáo mèo
+  - type: list
+    listType: unordered
+    children:
+      - type: listItem
+        children:
+          - type: paragraph
+            children:
+              - type: text
+                text: Phụ kiện sáo
 btnLabel: MUA NGAY

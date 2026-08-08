@@ -1,3 +1,11 @@
+export type PinnedPost = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  cover: string | null;
+  date: string | null;
+};
+
 export type SocialLink = {
   network: string;
   handle: string;
@@ -16,6 +24,7 @@ export type SiteSettings = {
   contactTitle: string;
   contactIntro: string;
   contactSubmitLabel: string;
+  pinnedPosts: PinnedPost[];
 };
 
 export type DocumentItem = {

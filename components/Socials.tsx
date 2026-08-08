@@ -9,7 +9,7 @@ export default async function Socials() {
     <section className="socials-section">
       <div className="section-divider">
         <div className="divider-line" aria-hidden="true" />
-        <h2 className="section-divider-title">2.9 KẾT NỐI VỚI CHÚNG TÔI</h2>
+        <h2 className="section-divider-title">KẾT NỐI VỚI CHÚNG TÔI</h2>
         <div className="divider-line" aria-hidden="true" />
       </div>
 
