@@ -5,11 +5,17 @@ export type SocialLink = {
   href: string;
 };
 
-export type ContactSettings = {
+export type SiteSettings = {
   phoneRaw: string;
   phoneDisplay: string;
   zalo: string;
   socials: SocialLink[];
+  footerMotto: string;
+  footerSubtitle: string;
+  footerCtaLabel: string;
+  contactTitle: string;
+  contactIntro: string;
+  contactSubmitLabel: string;
 };
 
 export type DocumentItem = {

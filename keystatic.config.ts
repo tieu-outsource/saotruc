@@ -202,6 +202,12 @@ export default config({
           ),
           { label: "Mạng xã hội", itemLabel: (p) => p.fields.network.value ?? "Mạng xã hội" }
         ),
+        footerMotto: fields.text({ label: "Châm ngôn chân trang (VD: ĐAM MÊ LÀM NÊN GIÁ TRỊ...)" }),
+        footerSubtitle: fields.text({ label: "Câu phụ chân trang" }),
+        footerCtaLabel: fields.text({ label: "Nhãn nút chân trang (VD: LIÊN HỆ TƯ VẤN)" }),
+        contactTitle: fields.text({ label: "Tiêu đề mục liên hệ (VD: LIÊN HỆ & ĐĂNG KÝ HỌC)" }),
+        contactIntro: fields.text({ label: "Mô tả mục liên hệ", multiline: true }),
+        contactSubmitLabel: fields.text({ label: "Nhãn nút gửi biểu mẫu (VD: GỬI ĐĂNG KÝ)" }),
       },
     }),
     classesPage: singleton({
@@ -209,6 +215,8 @@ export default config({
       path: "content/classesPage",
       format: { data: "yaml" },
       schema: {
+        title: fields.text({ label: "Tiêu đề trang (VD: LỚP HỌC CÁC BỘ MÔN)" }),
+        formatsTitle: fields.text({ label: "Tiêu đề mục hình thức học (VD: HÌNH THỨC HỌC)" }),
         intro: fields.text({ label: "Giới thiệu trang", multiline: true }),
         formats: fields.array(
           fields.object(
@@ -221,6 +229,32 @@ export default config({
           ),
           { label: "Hình thức học", itemLabel: (p) => p.fields.title.value ?? "Hình thức" }
         ),
+        ctaLabel: fields.text({ label: "Nhãn nút đăng ký (VD: ĐĂNG KÝ HỌC NGAY)" }),
+        ctaHref: fields.text({ label: "Đường dẫn nút đăng ký (VD: /#register)" }),
+        seoTitle: fields.text({ label: "Tiêu đề SEO (tab trình duyệt)" }),
+        seoDescription: fields.text({ label: "Mô tả SEO", multiline: true }),
+      },
+    }),
+    tailieuPage: singleton({
+      label: "Trang Cửa hàng tài liệu (/tailieu)",
+      path: "content/tailieuPage",
+      format: { data: "yaml" },
+      schema: {
+        title: fields.text({ label: "Tiêu đề trang (VD: CỬA HÀNG TÀI LIỆU)" }),
+        intro: fields.text({ label: "Giới thiệu trang", multiline: true }),
+        seoTitle: fields.text({ label: "Tiêu đề SEO (tab trình duyệt)" }),
+        seoDescription: fields.text({ label: "Mô tả SEO", multiline: true }),
+      },
+    }),
+    tinTucPage: singleton({
+      label: "Trang Tin tức (/tin-tuc)",
+      path: "content/tinTucPage",
+      format: { data: "yaml" },
+      schema: {
+        title: fields.text({ label: "Tiêu đề trang (VD: TIN TỨC)" }),
+        intro: fields.text({ label: "Giới thiệu trang", multiline: true }),
+        seoTitle: fields.text({ label: "Tiêu đề SEO (tab trình duyệt)" }),
+        seoDescription: fields.text({ label: "Mô tả SEO", multiline: true }),
       },
     }),
   },

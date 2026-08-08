@@ -3,13 +3,19 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { socialLink } from "@/lib/socials";
-import type { ContactSettings } from "@/lib/types";
+import type { SiteSettings } from "@/lib/types";
 
-const FALLBACK: ContactSettings = {
+const FALLBACK: SiteSettings = {
   phoneRaw: "0382910471",
   phoneDisplay: "0382 910 471",
   zalo: "0382910471",
   socials: [],
+  footerMotto: "",
+  footerSubtitle: "",
+  footerCtaLabel: "",
+  contactTitle: "",
+  contactIntro: "",
+  contactSubmitLabel: "",
 };
 
 export default function ContactModal({
@@ -19,7 +25,7 @@ export default function ContactModal({
 }: {
   open: boolean;
   onClose: () => void;
-  settings?: ContactSettings;
+  settings?: SiteSettings;
 }) {
   const contact = settings ?? FALLBACK;
 

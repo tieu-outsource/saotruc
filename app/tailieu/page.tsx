@@ -5,16 +5,21 @@ import Footer from "@/components/Footer";
 import { cms } from "@/lib/reader";
 import type { DocumentItem } from "@/lib/types";
 
-export const metadata: Metadata = {
-  title: "Mua Tài Liệu Sáo Trúc - Hồng Việt",
-  description:
-    "Mua giáo trình sáo trúc cơ bản, nâng cao và sheet nhạc cảm âm chuẩn từ Hồng Việt Sáo Trúc.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await cms.tailieuPage();
+  return {
+    title: page?.seoTitle ?? "Mua Tài Liệu Sáo Trúc - Hồng Việt",
+    description:
+      page?.seoDescription ??
+      "Mua giáo trình sáo trúc cơ bản, nâng cao và sheet nhạc cảm âm chuẩn từ Hồng Việt Sáo Trúc.",
+  };
+}
 
 export default async function TailieuPage() {
-  const [store, contact] = await Promise.all([
+  const [store, page, contact] = await Promise.all([
     cms.storeItems(),
-    cms.contactSettings(),
+    cms.tailieuPage(),
+    cms.siteSettings(),
   ]);
   const items: DocumentItem[] = [...store]
     .sort((a, b) => (a.entry.order ?? 0) - (b.entry.order ?? 0))
@@ -37,7 +42,7 @@ export default async function TailieuPage() {
         <section className="store-section">
           <div className="section-divider" style={{ marginTop: 20 }}>
             <div className="divider-line" aria-hidden="true" />
-            <h1 className="section-divider-title">CỬA HÀNG TÀI LIỆU</h1>
+            <h1 className="section-divider-title">{page?.title ?? "CỬA HÀNG TÀI LIỆU"}</h1>
             <div className="divider-line" aria-hidden="true" />
           </div>
 
@@ -51,9 +56,8 @@ export default async function TailieuPage() {
             }}
           >
             <p style={{ color: "var(--text-secondary)", fontSize: "1.05rem" }}>
-              Tổng hợp tài liệu nhạc lý, giáo trình thổi sáo từ cơ bản đến nâng
-              cao cùng hàng ngàn bản sheet nhạc, cảm âm chuẩn được biên soạn độc
-              quyền bởi Hồng Việt.
+              {page?.intro ??
+                "Tổng hợp tài liệu nhạc lý, giáo trình thổi sáo từ cơ bản đến nâng cao cùng hàng ngàn bản sheet nhạc, cảm âm chuẩn được biên soạn độc quyền bởi Hồng Việt."}
             </p>
           </div>
 

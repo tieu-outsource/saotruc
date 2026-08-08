@@ -1,6 +1,6 @@
 import { createReader } from "@keystatic/core/reader";
 import config from "../keystatic.config";
-import type { ContactSettings } from "./types";
+import type { SiteSettings } from "./types";
 
 export const reader = createReader(process.cwd(), config);
 
@@ -18,8 +18,10 @@ export const cms = {
     reader.collections.posts.read(slug, { resolveLinkedFiles: true }),
   settings: () => reader.singletons.settings.read({ resolveLinkedFiles: true }),
   classesPage: () => reader.singletons.classesPage.read({ resolveLinkedFiles: true }),
-  /** Contact info for the footer modal, with hardcoded-site fallbacks. */
-  contactSettings: async (): Promise<ContactSettings> => {
+  tailieuPage: () => reader.singletons.tailieuPage.read({ resolveLinkedFiles: true }),
+  tinTucPage: () => reader.singletons.tinTucPage.read({ resolveLinkedFiles: true }),
+  /** Site-wide text: contact info for the modal + footer/form copy, with hardcoded-site fallbacks. */
+  siteSettings: async (): Promise<SiteSettings> => {
     const s = await reader.singletons.settings.read({ resolveLinkedFiles: true });
     return {
       phoneRaw: s?.phoneRaw ?? "0382910471",
@@ -31,6 +33,12 @@ export const cms = {
         btn: x.btn ?? "",
         href: x.href ?? "",
       })),
+      footerMotto: s?.footerMotto ?? "ĐAM MÊ LÀM NÊN GIÁ TRỊ - CHẤT LƯỢNG TẠO NÊN UY TÍN",
+      footerSubtitle: s?.footerSubtitle ?? "Đồng hành cùng bạn trên hành trình chạm đến âm nhạc truyền thống.",
+      footerCtaLabel: s?.footerCtaLabel ?? "LIÊN HỆ TƯ VẤN",
+      contactTitle: s?.contactTitle ?? "LIÊN HỆ & ĐĂNG KÝ HỌC",
+      contactIntro: s?.contactIntro ?? "Để lại thông tin, Hồng Việt sẽ liên hệ tư vấn khóa học, mua sáo, tài liệu hoặc dịch vụ thu âm, biểu diễn trong thời gian sớm nhất.",
+      contactSubmitLabel: s?.contactSubmitLabel ?? "GỬI ĐĂNG KÝ",
     };
   },
 };

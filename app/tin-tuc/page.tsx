@@ -4,11 +4,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { cms } from "@/lib/reader";
 
-export const metadata: Metadata = {
-  title: "Tin Tức - Hồng Việt Sáo Trúc",
-  description:
-    "Tin tức, bài viết về sáo trúc, âm nhạc dân tộc và các hoạt động của Hồng Việt Sáo Trúc.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await cms.tinTucPage();
+  return {
+    title: page?.seoTitle ?? "Tin Tức - Hồng Việt Sáo Trúc",
+    description:
+      page?.seoDescription ??
+      "Tin tức, bài viết về sáo trúc, âm nhạc dân tộc và các hoạt động của Hồng Việt Sáo Trúc.",
+  };
+}
 
 function formatDate(iso: string): string {
   const [y, m, d] = iso.split("-");
@@ -16,9 +20,10 @@ function formatDate(iso: string): string {
 }
 
 export default async function TinTucPage() {
-  const [posts, contact] = await Promise.all([
+  const [posts, page, contact] = await Promise.all([
     cms.posts(),
-    cms.contactSettings(),
+    cms.tinTucPage(),
+    cms.siteSettings(),
   ]);
   const published = posts
     .filter((p) => p.entry.published)
@@ -31,14 +36,14 @@ export default async function TinTucPage() {
         <section className="news-section">
           <div className="section-divider" style={{ marginTop: 20 }}>
             <div className="divider-line" aria-hidden="true" />
-            <h1 className="section-divider-title">TIN TỨC</h1>
+            <h1 className="section-divider-title">{page?.title ?? "TIN TỨC"}</h1>
             <div className="divider-line" aria-hidden="true" />
           </div>
 
           <div className="news-intro">
             <p>
-              Những bài viết, chia sẻ về sáo trúc và âm nhạc dân tộc từ Hồng
-              Việt Sáo Trúc.
+              {page?.intro ??
+                "Những bài viết, chia sẻ về sáo trúc và âm nhạc dân tộc từ Hồng Việt Sáo Trúc."}
             </p>
           </div>
 

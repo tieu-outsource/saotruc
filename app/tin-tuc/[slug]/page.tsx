@@ -31,7 +31,7 @@ export default async function PostPage({ params }: Props) {
   const { slug } = await params;
   const [post, contact] = await Promise.all([
     cms.post(slug),
-    cms.contactSettings(),
+    cms.siteSettings(),
   ]);
   if (!post || !post.published) notFound();
 

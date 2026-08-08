@@ -1,3 +1,5 @@
+title: "LỚP HỌC CÁC BỘ MÔN"
+formatsTitle: "HÌNH THỨC HỌC"
 intro: "Phương pháp bài bản, dễ hiểu cùng đội ngũ giáo viên chuyên nghiệp, tận tâm — đồng hành cùng học viên trên toàn quốc trên hành trình chinh phục cây sáo và âm nhạc dân tộc."
 formats:
   - icon: "fa-solid fa-house-user"
@@ -9,3 +11,7 @@ formats:
   - icon: "fa-solid fa-laptop"
     title: "HỌC ONLINE 1 KÈM 1"
     desc: "Học online trực tuyến 1 kèm 1, phù hợp học viên ở xa trên toàn quốc."
+ctaLabel: "ĐĂNG KÝ HỌC NGAY"
+ctaHref: "/#register"
+seoTitle: "Lớp Học Các Bộ Môn - Hồng Việt Sáo Trúc"
+seoDescription: "Lớp học sáo trúc, dizi, sáo nứa, sáo mèo và các bộ môn dân tộc khác tại Hồng Việt Sáo Trúc. Học gia sư tại nhà, trực tiếp tại trung tâm hoặc online 1 kèm 1."

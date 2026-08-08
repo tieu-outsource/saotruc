@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import ContactModal from "./ContactModal";
-import type { ContactSettings } from "@/lib/types";
+import type { SiteSettings } from "@/lib/types";
 
-export default function Footer({ settings }: { settings?: ContactSettings }) {
+export default function Footer({ settings }: { settings?: SiteSettings }) {
   const [showContact, setShowContact] = useState(false);
 
   return (
@@ -16,10 +16,10 @@ export default function Footer({ settings }: { settings?: ContactSettings }) {
           </div>
           <div className="footer-motto">
             <span className="footer-title">
-              ĐAM MÊ LÀM NÊN GIÁ TRỊ - CHẤT LƯỢNG TẠO NÊN UY TÍN
+              {settings?.footerMotto ?? "ĐAM MÊ LÀM NÊN GIÁ TRỊ - CHẤT LƯỢNG TẠO NÊN UY TÍN"}
             </span>
             <span className="footer-subtitle">
-              Đồng hành cùng bạn trên hành trình chạm đến âm nhạc truyền thống.
+              {settings?.footerSubtitle ?? "Đồng hành cùng bạn trên hành trình chạm đến âm nhạc truyền thống."}
             </span>
           </div>
         </div>
@@ -30,7 +30,7 @@ export default function Footer({ settings }: { settings?: ContactSettings }) {
           onClick={() => setShowContact(true)}
         >
           <i className="fa-solid fa-phone" aria-hidden="true" />
-          LIÊN HỆ TƯ VẤN
+          {settings?.footerCtaLabel ?? "LIÊN HỆ TƯ VẤN"}
         </button>
       </div>
       <ContactModal

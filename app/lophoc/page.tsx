@@ -6,17 +6,21 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import { cms } from "@/lib/reader";
 
-export const metadata: Metadata = {
-  title: "Lớp Học Các Bộ Môn - Hồng Việt Sáo Trúc",
-  description:
-    "Lớp học sáo trúc, dizi, sáo nứa, sáo mèo và các bộ môn dân tộc khác tại Hồng Việt Sáo Trúc. Học gia sư tại nhà, trực tiếp tại trung tâm hoặc online 1 kèm 1.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await cms.classesPage();
+  return {
+    title: page?.seoTitle ?? "Lớp Học Các Bộ Môn - Hồng Việt Sáo Trúc",
+    description:
+      page?.seoDescription ??
+      "Lớp học sáo trúc, dizi, sáo nứa, sáo mèo và các bộ môn dân tộc khác tại Hồng Việt Sáo Trúc. Học gia sư tại nhà, trực tiếp tại trung tâm hoặc online 1 kèm 1.",
+  };
+}
 
 export default async function LophocPage() {
   const [classes, classesPage, contact] = await Promise.all([
     cms.classCards(),
     cms.classesPage(),
-    cms.contactSettings(),
+    cms.siteSettings(),
   ]);
   const CLASSES = [...classes]
     .sort((a, b) => (a.entry.order ?? 0) - (b.entry.order ?? 0))
@@ -31,6 +35,10 @@ export default async function LophocPage() {
     title: f.title ?? "",
     desc: f.desc ?? "",
   }));
+  const pageTitle = classesPage?.title ?? "LỚP HỌC CÁC BỘ MÔN";
+  const formatsTitle = classesPage?.formatsTitle ?? "HÌNH THỨC HỌC";
+  const ctaLabel = classesPage?.ctaLabel ?? "ĐĂNG KÝ HỌC NGAY";
+  const ctaHref = classesPage?.ctaHref ?? "/#register";
 
   return (
     <>
@@ -39,7 +47,7 @@ export default async function LophocPage() {
         <section className="lophoc-section">
           <div className="section-divider" style={{ marginTop: 20 }}>
             <div className="divider-line" aria-hidden="true" />
-            <h1 className="section-divider-title">LỚP HỌC CÁC BỘ MÔN</h1>
+            <h1 className="section-divider-title">{pageTitle}</h1>
             <div className="divider-line" aria-hidden="true" />
           </div>
 
@@ -72,7 +80,7 @@ export default async function LophocPage() {
 
           <div className="section-divider" style={{ marginTop: 20 }}>
             <div className="divider-line" aria-hidden="true" />
-            <h2 className="section-divider-title">HÌNH THỨC HỌC</h2>
+            <h2 className="section-divider-title">{formatsTitle}</h2>
             <div className="divider-line" aria-hidden="true" />
           </div>
 
@@ -87,8 +95,8 @@ export default async function LophocPage() {
           </div>
 
           <div className="lophoc-cta">
-            <a href="/#register" className="btn btn-primary" id="btn-register-lophoc">
-              ĐĂNG KÝ HỌC NGAY
+            <a href={ctaHref} className="btn btn-primary" id="btn-register-lophoc">
+              {ctaLabel}
             </a>
           </div>
         </section>

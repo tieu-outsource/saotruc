@@ -8,7 +8,7 @@ import { cms } from "@/lib/reader";
 export default async function HomePage() {
   const [settings, contact] = await Promise.all([
     cms.settings(),
-    cms.contactSettings(),
+    cms.siteSettings(),
   ]);
   const benefits = (settings?.heroBenefits ?? []).map((b) => ({
     icon: b.icon,
@@ -55,7 +55,11 @@ export default async function HomePage() {
 
         <Services />
         <Socials />
-        <ContactForm />
+        <ContactForm
+          title={contact.contactTitle}
+          intro={contact.contactIntro}
+          submitLabel={contact.contactSubmitLabel}
+        />
       </main>
       <Footer settings={contact} />
     </>

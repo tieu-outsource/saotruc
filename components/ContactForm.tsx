@@ -4,7 +4,15 @@ import { useState, type FormEvent } from "react";
 
 type Status = "idle" | "sending" | "success" | "error";
 
-export default function ContactForm() {
+export default function ContactForm({
+  title,
+  intro,
+  submitLabel,
+}: {
+  title: string;
+  intro: string;
+  submitLabel: string;
+}) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -46,7 +54,7 @@ export default function ContactForm() {
       <div className="section-divider">
         <div className="divider-line" aria-hidden="true" />
         <h2 id="consultation" className="section-divider-title">
-          LIÊN HỆ &amp; ĐĂNG KÝ HỌC
+          {title}
         </h2>
         <div className="divider-line" aria-hidden="true" />
       </div>
@@ -54,10 +62,7 @@ export default function ContactForm() {
       <div className="contact-container">
         <div className="contact-card">
           <div className="contact-intro">
-            <p>
-              Để lại thông tin, Hồng Việt sẽ liên hệ tư vấn khóa học, mua sáo,
-              tài liệu hoặc dịch vụ thu âm, biểu diễn trong thời gian sớm nhất.
-            </p>
+            <p>{intro}</p>
             <ul className="contact-channels">
               <li>
                 <i className="fa-solid fa-phone" aria-hidden="true" />
@@ -159,8 +164,8 @@ export default function ContactForm() {
                 </>
               ) : (
                 <>
-                  <i className="fa-solid fa-paper-plane" aria-hidden="true" /> GỬI
-                  ĐĂNG KÝ
+                  <i className="fa-solid fa-paper-plane" aria-hidden="true" />{" "}
+                  {submitLabel}
                 </>
               )}
             </button>
