@@ -1,5 +1,5 @@
 num: '2.3'
-title: BÁN CÁC LOẠI SÁO
+title: BÁN CÁC LOẠI SÁO AAA
 items:
   - Sáo trúc cao cấp
   - Sáo dizi
@@ -7,4 +7,3 @@ items:
   - Phụ kiện sáo
 nestedItems: []
 btnLabel: MUA NGAY
-bg: ban_sao.avif
