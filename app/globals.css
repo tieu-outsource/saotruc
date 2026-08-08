@@ -3283,40 +3283,6 @@ body > footer {
   animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Arrows */
-.hero-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 1px solid var(--accent-gold);
-  background: rgba(13, 11, 9, 0.45);
-  color: var(--accent-gold-light);
-  font-size: 1rem;
-  cursor: pointer;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
-
-.hero-arrow:hover {
-  background: var(--accent-gold);
-  color: #0d0b09;
-}
-
-.hero-arrow-prev {
-  left: 24px;
-}
-
-.hero-arrow-next {
-  right: 24px;
-}
 
 /* Dots */
 .hero-dots {
@@ -3351,9 +3317,6 @@ body > footer {
 }
 
 @media (max-width: 900px) {
-  .hero-arrow {
-    display: none;
-  }
 
   .hero-dots {
     bottom: 16px;

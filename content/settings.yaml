@@ -2,12 +2,18 @@ heroSlides:
   - title: Kết nối tâm hồn
     accent: Qua từng thanh sáo
     description: >-
-      Dạy học – Biểu diễn – Sản phẩm & Dịch vụ chuyên nghiệp về sáo trúc và âm nhạc
-      dân tộc.
+      Dạy học – Biểu diễn – Sản phẩm & Dịch vụ chuyên nghiệp về sáo trúc và âm
+      nhạc dân tộc.
     primaryLabel: KHÁM PHÁ DỊCH VỤ
     primaryHref: '#services'
     secondaryLabel: TƯ VẤN
     secondaryHref: '#contact'
+  - image: /assets/hero/heroSlides/1/image.png
+    title: Âm nhạc truyền thống
+    accent: Đồng hành cùng bạn trên hành trình chạm đến âm nhạc truyền thống.
+    description: Mô tả
+    primaryLabel: Khóa học
+    primaryHref: /lophoc
 heroBenefits:
   - icon: fa-solid fa-music
     text: Phương pháp bài bản, dễ hiểu
@@ -40,6 +46,11 @@ socials:
     handle: '@auco.music'
     btn: THEO DÕI
     href: https://instagram.com
+contactTitle: LIÊN HỆ & ĐĂNG KÝ HỌC
+contactIntro: >-
+  Để lại thông tin, Sáo trúc Âu Cơ sẽ liên hệ tư vấn khóa học, mua sáo, tài liệu
+  hoặc dịch vụ thu âm, biểu diễn trong thời gian sớm nhất.
+contactSubmitLabel: GỬI ĐĂNG KÝ
 footerMotto: ĐAM MÊ LÀM NÊN GIÁ TRỊ - CHẤT LƯỢNG TẠO NÊN UY TÍN
 footerSubtitle: Đồng hành cùng bạn trên hành trình chạm đến âm nhạc truyền thống.
 footerCtaLabel: LIÊN HỆ TƯ VẤN
@@ -51,11 +62,6 @@ footerCustomFields:
   - label: Email
     value: saotrucauco@gmail.com
 footerCopyright: © 2026 Sáo trúc Âu Cơ. Tất cả quyền được bảo lưu.
-contactTitle: LIÊN HỆ & ĐĂNG KÝ HỌC
-contactIntro: >-
-  Để lại thông tin, Sáo trúc Âu Cơ sẽ liên hệ tư vấn khóa học, mua sáo, tài liệu
-  hoặc dịch vụ thu âm, biểu diễn trong thời gian sớm nhất.
-contactSubmitLabel: GỬI ĐĂNG KÝ
 bankId: TCB
 bankAccountNo: '9720041999'
 bankAccountName: LE CANH TIEU

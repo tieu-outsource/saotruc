@@ -45,16 +45,6 @@ export default function HeroSlider({ slides, benefits }: HeroSliderProps) {
     return () => window.clearInterval(timer);
   }, [count, paused]);
 
-  // Keyboard navigation while the hero has focus.
-  useEffect(() => {
-    if (count < 2) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") goTo(current - 1);
-      if (e.key === "ArrowRight") goTo(current + 1);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [count, current, goTo]);
 
   if (count === 0) return null;
 
@@ -72,6 +62,11 @@ export default function HeroSlider({ slides, benefits }: HeroSliderProps) {
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
+      onKeyDown={(e) => {
+        if (count < 2) return;
+        if (e.key === "ArrowLeft") goTo(current - 1);
+        if (e.key === "ArrowRight") goTo(current + 1);
+      }}
     >
       {count > 1 && (
         <div className="hero-slides">
@@ -107,45 +102,14 @@ export default function HeroSlider({ slides, benefits }: HeroSliderProps) {
             <a href={slide.primaryHref} className="btn btn-primary">
               {slide.primaryLabel}
             </a>
-            <a href={slide.secondaryHref} className="btn btn-outline">
-              {slide.secondaryLabel}
-            </a>
+            {slide.secondaryLabel && slide.secondaryHref && (
+              <a href={slide.secondaryHref} className="btn btn-outline">
+                {slide.secondaryLabel}
+              </a>
+            )}
           </div>
         </div>
 
-        {count > 1 && (
-          <>
-            <button
-              type="button"
-              className="hero-arrow hero-arrow-prev"
-              aria-label="Slide trước"
-              onClick={() => goTo(current - 1)}
-            >
-              <i className="fa-solid fa-chevron-left" aria-hidden="true" />
-            </button>
-            <button
-              type="button"
-              className="hero-arrow hero-arrow-next"
-              aria-label="Slide sau"
-              onClick={() => goTo(current + 1)}
-            >
-              <i className="fa-solid fa-chevron-right" aria-hidden="true" />
-            </button>
-            <div className="hero-dots" role="tablist" aria-label="Chọn slide">
-              {slides.map((s, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  role="tab"
-                  aria-selected={i === current}
-                  aria-label={`Slide ${i + 1}${s.title ? `: ${s.title}` : ""}`}
-                  className={`hero-dot${i === current ? " active" : ""}`}
-                  onClick={() => goTo(i)}
-                />
-              ))}
-            </div>
-          </>
-        )}
 
         <div className="hero-benefits hero-anim hero-anim-4">
           {benefits.map((b) => (
@@ -158,6 +122,21 @@ export default function HeroSlider({ slides, benefits }: HeroSliderProps) {
           ))}
         </div>
       </div>
+      {count > 1 && (
+        <div className="hero-dots" role="tablist" aria-label="Chọn slide">
+          {slides.map((s, i) => (
+            <button
+              key={i}
+              type="button"
+              role="tab"
+              aria-selected={i === current}
+              aria-label={`Slide ${i + 1}${s.title ? `: ${s.title}` : ""}`}
+              className={`hero-dot${i === current ? " active" : ""}`}
+              onClick={() => goTo(i)}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
