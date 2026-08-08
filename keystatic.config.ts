@@ -247,6 +247,9 @@ export default config({
           ),
           { label: "Mạng xã hội", itemLabel: (p) => p.fields.network.value ?? "Mạng xã hội" }
         ),
+        contactTitle: fields.text({ label: "Tiêu đề mục liên hệ (VD: LIÊN HỆ & ĐĂNG KÝ HỌC)" }),
+        contactIntro: fields.text({ label: "Mô tả mục liên hệ", multiline: true }),
+        contactSubmitLabel: fields.text({ label: "Nhãn nút gửi biểu mẫu (VD: GỬI ĐĂNG KÝ)" }),
         footerMotto: fields.text({ label: "Châm ngôn chân trang (VD: ĐAM MÊ LÀM NÊN GIÁ TRỊ...)" }),
         footerSubtitle: fields.text({ label: "Câu phụ chân trang" }),
         footerCtaLabel: fields.text({ label: "Nhãn nút chân trang (VD: LIÊN HỆ TƯ VẤN)" }),
@@ -270,9 +273,6 @@ export default config({
         footerCopyright: fields.text({
           label: "Bản quyền (VD: © 2026 Sáo trúc Âu Cơ. Tất cả quyền được bảo lưu.)",
         }),
-        contactTitle: fields.text({ label: "Tiêu đề mục liên hệ (VD: LIÊN HỆ & ĐĂNG KÝ HỌC)" }),
-        contactIntro: fields.text({ label: "Mô tả mục liên hệ", multiline: true }),
-        contactSubmitLabel: fields.text({ label: "Nhãn nút gửi biểu mẫu (VD: GỬI ĐĂNG KÝ)" }),
         bankId: fields.select({
           label: "Mã ngân hàng VietQR (dùng để tạo mã QR thanh toán)",
           options: [
