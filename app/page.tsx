@@ -5,6 +5,7 @@ import Socials from "@/components/Socials";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import { cms } from "@/lib/reader";
+import HeroSlider, { type HeroSlide } from "@/components/HeroSlider";
 
 export default async function HomePage() {
   const [settings, contact] = await Promise.all([
@@ -15,45 +16,35 @@ export default async function HomePage() {
     icon: b.icon,
     text: b.text ?? "",
   }));
+  const heroSlides = (settings?.heroSlides ?? []).map((s) => ({
+    image: s.image ?? null,
+    title: s.title ?? "",
+    accent: s.accent ?? "",
+    description: s.description ?? "",
+    primaryLabel: s.primaryLabel ?? "",
+    primaryHref: s.primaryHref ?? "#services",
+    secondaryLabel: s.secondaryLabel ?? "",
+    secondaryHref: s.secondaryHref ?? "#contact",
+  }));
+  const defaultSlide: HeroSlide = {
+    image: null,
+    title: "Kết nối tâm hồn",
+    accent: "Qua từng thanh sáo",
+    description:
+      "Dạy học – Biểu diễn – Sản phẩm & Dịch vụ chuyên nghiệp về sáo trúc và âm nhạc dân tộc.",
+    primaryLabel: "KHÁM PHÁ DỊCH VỤ",
+    primaryHref: "#services",
+    secondaryLabel: "TƯ VẤN",
+    secondaryHref: "#contact",
+  };
+  const slides = heroSlides.length > 0 ? heroSlides : [defaultSlide];
   const pinnedPosts = contact.pinnedPosts ?? [];
 
   return (
     <>
       <Header />
       <main>
-        <section className="hero" id="home">
-          <div className="hero-container">
-            <div className="hero-content">
-              <h1 className="hero-title hero-anim hero-anim-1">
-                {settings?.heroTitle ?? "Kết nối tâm hồn"}
-                <span>{settings?.heroAccent ?? "Qua từng thanh sáo"}</span>
-              </h1>
-              <p className="hero-description hero-anim hero-anim-2">
-                {settings?.heroDescription ??
-                  "Dạy học – Biểu diễn – Sản phẩm & Dịch vụ chuyên nghiệp về sáo trúc và âm nhạc dân tộc."}
-              </p>
-              <div className="hero-buttons hero-anim hero-anim-3">
-                <a href="#services" className="btn btn-primary" id="btn-explore">
-                  KHÁM PHÁ DỊCH VỤ
-                </a>
-                <a href="#contact" className="btn btn-outline" id="btn-about">
-                  TƯ VẤN
-                </a>
-              </div>
-            </div>
-
-            <div className="hero-benefits hero-anim hero-anim-4">
-              {benefits.map((b) => (
-                <div key={b.text} className="benefit-item">
-                  <div className="benefit-icon-wrapper" aria-hidden="true">
-                    <i className={b.icon} />
-                  </div>
-                  <span className="benefit-text">{b.text}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <HeroSlider slides={slides} benefits={benefits} />
 
         <Services />
         <Socials />

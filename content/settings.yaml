@@ -1,8 +1,13 @@
-heroTitle: Kết nối tâm hồn
-heroAccent: Qua từng thanh sáo
-heroDescription: >-
-  Dạy học – Biểu diễn – Sản phẩm & Dịch vụ chuyên nghiệp về sáo trúc và âm nhạc
-  dân tộc.
+heroSlides:
+  - title: Kết nối tâm hồn
+    accent: Qua từng thanh sáo
+    description: >-
+      Dạy học – Biểu diễn – Sản phẩm & Dịch vụ chuyên nghiệp về sáo trúc và âm nhạc
+      dân tộc.
+    primaryLabel: KHÁM PHÁ DỊCH VỤ
+    primaryHref: '#services'
+    secondaryLabel: TƯ VẤN
+    secondaryHref: '#contact'
 heroBenefits:
   - icon: fa-solid fa-music
     text: Phương pháp bài bản, dễ hiểu

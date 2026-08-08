@@ -186,9 +186,29 @@ export default config({
       path: "content/settings",
       format: { data: "yaml" },
       schema: {
-        heroTitle: fields.text({ label: "Tiêu đề chính (hero)" }),
-        heroAccent: fields.text({ label: "Tiêu đề phụ - chữ vàng (hero)" }),
-        heroDescription: fields.text({ label: "Mô tả (hero)", multiline: true }),
+        heroSlides: fields.array(
+          fields.object(
+            {
+              image: fields.image({
+                label: "Ảnh nền (banner, nên rộng ~1920px)",
+                directory: "public/assets/hero",
+                publicPath: "/assets/hero/",
+              }),
+              title: fields.text({ label: "Tiêu đề chính" }),
+              accent: fields.text({ label: "Tiêu đề phụ - chữ vàng" }),
+              description: fields.text({ label: "Mô tả", multiline: true }),
+              primaryLabel: fields.text({ label: "Nhãn nút chính (VD: KHÁM PHÁ DỊCH VỤ)" }),
+              primaryHref: fields.text({ label: "Đường dẫn nút chính (VD: #services)" }),
+              secondaryLabel: fields.text({ label: "Nhãn nút phụ (VD: TƯ VẤN)" }),
+              secondaryHref: fields.text({ label: "Đường dẫn nút phụ (VD: #contact)" }),
+            },
+            { label: "Slide" }
+          ),
+          {
+            label: "Hero slider (nhiều ảnh + chữ, tự động chuyển)",
+            itemLabel: (p) => p.fields.title.value ?? "Slide",
+          }
+        ),
         heroBenefits: fields.array(
           fields.object(
             {
