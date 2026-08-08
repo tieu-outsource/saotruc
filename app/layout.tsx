@@ -3,12 +3,30 @@ import ScrollReveal from "@/components/ScrollReveal";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://daythoisao.com"),
   title: "Sáo trúc Âu Cơ - Sáo Trúc & Âm Nhạc Dân Tộc",
   description:
     "Học sáo trúc và âm nhạc dân tộc cùng Sáo trúc Âu Cơ. Dạy học, biểu diễn chuyên nghiệp, cung cấp nhạc cụ truyền thống chất lượng cao.",
   keywords:
     "sáo trúc, học sáo trúc, dizi, sáo mèo, âm nhạc dân tộc, nhạc cụ truyền thống, thu âm sáo",
   authors: [{ name: "Sáo trúc Âu Cơ" }],
+  openGraph: {
+    type: "website",
+    locale: "vi_VN",
+    siteName: "Sáo trúc Âu Cơ",
+    images: [
+      {
+        url: "/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Sáo trúc Âu Cơ - Sáo Trúc & Âm Nhạc Dân Tộc",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-default.jpg"],
+  },
 };
 
 export const viewport: Viewport = {
