@@ -21,14 +21,14 @@ const FA_ICONS = [
 ];
 
 // Nút "Preview" trong admin mở site tại trang chứa nội dung đang sửa.
-// Hiện trỏ về máy local (npm run dev -p 3001). Khi deploy lên Vercel, đổi thành:
-//   "https://{branch}--<tên-project>.vercel.app"  ({branch} = nhánh bản nháp)
-//   hoặc tên miền thật nếu muốn preview thẳng bản đã lưu: "https://hongviet-saotruc.com"
-const SITE_URL = "http://localhost:3001";
+// Mặc định mở trang live (production). Nếu muốn xem BẢN NHÁP trước khi
+// xuất bản (khi chỉnh trên nhánh khác main), đổi thành:
+//   "https://{branch}--saotruc.vercel.app"  ({branch} = tên nhánh)
+const SITE_URL = "https://saotruc.vercel.app";
 
 
 export default config({
-  storage: { kind: "local" },
+  storage: { kind: "github", repo: "tieu-outsource/saotruc" },
   ui: {
     brand: { name: "Hồng Việt Sáo Trúc" },
   },
