@@ -10,8 +10,8 @@ heroSlides:
     secondaryHref: '#contact'
   - image: /assets/hero/heroSlides/1/image.png
     title: Âm nhạc truyền thống
-    accent: Đồng hành cùng bạn trên hành trình chạm đến âm nhạc truyền thống.
-    description: Mô tả
+    accent: Tiêu đề phụ
+    description: Đồng hành cùng bạn trên hành trình chạm đến âm nhạc truyền thống.
     primaryLabel: Khóa học
     primaryHref: /lophoc
 heroBenefits:
