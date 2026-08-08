@@ -20,6 +20,13 @@ const FA_ICONS = [
   { label: "Nhà", value: "fa-solid fa-house" },
 ];
 
+// Nút "Preview" trong admin mở site tại trang chứa nội dung đang sửa.
+// Hiện trỏ về máy local (npm run dev -p 3001). Khi deploy lên Vercel, đổi thành:
+//   "https://{branch}--<tên-project>.vercel.app"  ({branch} = nhánh bản nháp)
+//   hoặc tên miền thật nếu muốn preview thẳng bản đã lưu: "https://hongviet-saotruc.com"
+const SITE_URL = "http://localhost:3001";
+
+
 export default config({
   storage: { kind: "local" },
   ui: {
@@ -31,6 +38,7 @@ export default config({
       slugField: "title",
       path: "content/services/*",
       format: { data: "yaml" },
+      previewUrl: SITE_URL + "/",
       columns: ["title", "num"],
       schema: {
         num: fields.text({ label: "Số thứ tự (VD: 2.1)" }),
@@ -71,6 +79,7 @@ export default config({
       slugField: "title",
       path: "content/classCards/*",
       format: { data: "yaml" },
+      previewUrl: SITE_URL + "/",
       columns: ["title"],
       schema: {
         order: fields.number({ label: "Thứ tự hiển thị", defaultValue: 1 }),
@@ -91,6 +100,7 @@ export default config({
       slugField: "title",
       path: "content/storeItems/*",
       format: { data: "yaml" },
+      previewUrl: SITE_URL + "/tailieu",
       columns: ["title", "price"],
       schema: {
         order: fields.number({ label: "Thứ tự hiển thị", defaultValue: 1 }),
@@ -128,6 +138,7 @@ export default config({
       slugField: "title",
       path: "content/posts/*",
       format: { contentField: "content" },
+      previewUrl: SITE_URL + "/tin-tuc/{slug}",
       columns: ["title", "date"],
       schema: {
         title: fields.slug({
@@ -164,6 +175,7 @@ export default config({
       label: "Cài đặt chung",
       path: "content/settings",
       format: { data: "yaml" },
+      previewUrl: SITE_URL + "/",
       schema: {
         heroTitle: fields.text({ label: "Tiêu đề chính (hero)" }),
         heroAccent: fields.text({ label: "Tiêu đề phụ - chữ vàng (hero)" }),
@@ -214,6 +226,7 @@ export default config({
       label: "Trang Lớp học (LỚP HỌC CÁC BỘ MÔN)",
       path: "content/classesPage",
       format: { data: "yaml" },
+      previewUrl: SITE_URL + "/lophoc",
       schema: {
         title: fields.text({ label: "Tiêu đề trang (VD: LỚP HỌC CÁC BỘ MÔN)" }),
         formatsTitle: fields.text({ label: "Tiêu đề mục hình thức học (VD: HÌNH THỨC HỌC)" }),
@@ -239,6 +252,7 @@ export default config({
       label: "Trang Cửa hàng tài liệu (/tailieu)",
       path: "content/tailieuPage",
       format: { data: "yaml" },
+      previewUrl: SITE_URL + "/tailieu",
       schema: {
         title: fields.text({ label: "Tiêu đề trang (VD: CỬA HÀNG TÀI LIỆU)" }),
         intro: fields.text({ label: "Giới thiệu trang", multiline: true }),
@@ -250,6 +264,7 @@ export default config({
       label: "Trang Tin tức (/tin-tuc)",
       path: "content/tinTucPage",
       format: { data: "yaml" },
+      previewUrl: SITE_URL + "/tin-tuc",
       schema: {
         title: fields.text({ label: "Tiêu đề trang (VD: TIN TỨC)" }),
         intro: fields.text({ label: "Giới thiệu trang", multiline: true }),
