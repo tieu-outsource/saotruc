@@ -1,11 +1,18 @@
 import { NextResponse } from "next/server";
 
 type ContactPayload = {
+  type?: "contact" | "purchase";
   name?: string;
   phone?: string;
   email?: string;
   message?: string;
   website?: string;
+  // Purchase specific fields
+  itemName?: string;
+  itemType?: string;
+  itemPrice?: number | string;
+  itemCode?: string;
+  bankInfo?: string;
 };
 
 export async function POST(req: Request) {
@@ -36,28 +43,57 @@ export async function POST(req: Request) {
   const email = (payload.email ?? "").trim().slice(0, 120);
   const message = (payload.message ?? "").trim().slice(0, 2000);
 
-  if (!name || !phone || !message) {
-    return NextResponse.json(
-      { error: "Vui lòng điền đầy đủ họ tên, số điện thoại và nội dung" },
-      { status: 400 }
-    );
-  }
+  let text = "";
 
-  const lines = [
-    "🎵 *Liên hệ mới từ website Sáo trúc Âu Cơ*",
-    "",
-    `👤 *Họ tên:* ${name}`,
-    `📞 *Số điện thoại:* ${phone}`,
-  ];
-  if (email) lines.push(`✉️ *Email:* ${email}`);
-  lines.push("", `📝 *Nội dung:*`, message);
+  if (payload.type === "purchase") {
+    const itemName = (payload.itemName ?? "").trim();
+    const itemType = (payload.itemType ?? "Sản phẩm").trim();
+    const itemPrice = payload.itemPrice
+      ? `${Number(payload.itemPrice).toLocaleString("vi-VN")}đ`
+      : "Liên hệ";
+    const itemCode = (payload.itemCode ?? "").trim();
+    const bankInfo = (payload.bankInfo ?? "").trim();
+
+    const lines = [
+      "🛒 *ĐƠN HÀNG MỚI (XÁC NHẬN VIETQR)*",
+      "",
+      `👤 *Khách hàng:* ${name || "Chưa nhập tên"}`,
+      `📞 *SĐT / Zalo:* ${phone || "Chưa nhập SĐT"}`,
+      `📦 *Sản phẩm:* ${itemName}`,
+      `🏷️ *Loại:* ${itemType}`,
+      `💰 *Giá tiền:* ${itemPrice}`,
+      `🔖 *Mã chuyển khoản:* \`${itemCode}\``,
+    ];
+    if (bankInfo) lines.push(`🏦 *Tài khoản nhận:* ${bankInfo}`);
+    lines.push(
+      "",
+      "⚠️ *Ghi chú:* Khách đã nhấn nút xác nhận chuyển khoản qua VietQR. Vui lòng kiểm tra tài khoản và gửi file / video qua SĐT trên!"
+    );
+    text = lines.join("\n");
+  } else {
+    if (!name || !phone || !message) {
+      return NextResponse.json(
+        { error: "Vui lòng điền đầy đủ họ tên, số điện thoại và nội dung" },
+        { status: 400 }
+      );
+    }
+    const lines = [
+      "🎵 *Liên hệ mới từ website Sáo trúc Âu Cơ*",
+      "",
+      `👤 *Họ tên:* ${name}`,
+      `📞 *Số điện thoại:* ${phone}`,
+    ];
+    if (email) lines.push(`✉️ *Email:* ${email}`);
+    lines.push("", `📝 *Nội dung:*`, message);
+    text = lines.join("\n");
+  }
 
   const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       chat_id: chatId,
-      text: lines.join("\n"),
+      text,
       parse_mode: "Markdown",
     }),
   });

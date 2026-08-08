@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { socialLink } from "@/lib/socials";
 import type { SiteSettings } from "@/lib/types";
@@ -28,8 +28,12 @@ export default function ContactModal({
   onClose: () => void;
   settings?: SiteSettings;
 }) {
+  const [mounted, setMounted] = useState(false);
   const contact = settings ?? FALLBACK;
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -43,7 +47,7 @@ export default function ContactModal({
     };
   }, [open, onClose]);
 
-  if (!open) return null;
+  if (!mounted || !open) return null;
 
   return createPortal(
     <div

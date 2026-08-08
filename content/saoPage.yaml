@@ -1,0 +1,50 @@
+title: BÁN CÁC LOẠI SÁO & PHỤ KIỆN
+intro: >-
+  Hồng Việt cung cấp đầy đủ các loại sáo trúc Việt Nam, sáo Dizi Trung Hoa, sáo
+  Nứa, sáo Mèo và phụ kiện chọn lọc kỹ lưỡng, được âm chuẩn, dễ thổi dành cho
+  học viên và nghệ sĩ biểu diễn.
+items:
+  - title: Sáo Trúc Nứa Bắc / Nứa Nam (Đô C5)
+    price: 350.000đ – 650.000đ
+    desc: >-
+      Cây sáo thông dụng nhất dành cho người mới bắt đầu và biểu diễn chuyên
+      nghiệp. Chất âm mượt mà, bẻ tiếng chuẩn, nốt cao chuẩn âm phòng thu.
+    image: /assets/products/items/0/image.png
+    btnLabel: TƯ VẤN MUA SÁO C5
+    btnHref: /?topic=Tư vấn mua sáo trúc Đô C5#register
+  - title: Sáo Dizi Trung Hoa (Tone C, D, E, F, G)
+    price: 450.000đ – 850.000đ
+    badge: Nổi bật
+    desc: >-
+      Sáo Dizi khớp nối đồng chạm rồng / hoa văn tinh xảo, dán màng rung Dizi
+      cho âm thanh vang, sảng khoái đặc trưng nhạc cổ phong.
+    btnLabel: TƯ VẤN MUA SÁO DIZI
+    btnHref: /?topic=Tư vấn mua sáo Dizi Trung Hoa#register
+  - title: Sáo Mèo H'Mông (Kèm hộp đựng cao cấp)
+    price: 550.000đ – 950.000đ
+    badge: Âm mộc mạc
+    desc: >-
+      Sáo Mèo lam đồng chuẩn âm, âm thanh trầm ấm, đặc trưng âm hưởng Tây Bắc.
+      Thích hợp trình diễn các bài nhạc dân tộc mộc mạc.
+    btnLabel: TƯ VẤN MUA SÁO MÈO
+    btnHref: /?topic=Tư vấn mua sáo Mèo H'Mông#register
+  - title: Sáo Nứa Trầm (Tone Sol G4 / La A4)
+    price: 400.000đ – 750.000đ
+    badge: Tone trầm
+    desc: >-
+      Sáo nứa thân dài, đường kính ống lớn cho âm thanh rền, u sầu, sâu lắng.
+      Chuyên thổi nhạc trữ tình, hòa tấu hòa thanh.
+    btnLabel: TƯ VẤN MUA SÁO TRẦM
+    btnHref: /?topic=Tư vấn mua sáo nứa trầm G4 A4#register
+  - title: Bộ Phụ Kiện Sáo Trúc (Màng Dizi, Keo dán, Bao sáo, Dây treo)
+    price: 50.000đ – 180.000đ
+    badge: Phụ kiện
+    desc: >-
+      Trọn bộ phụ kiện bảo vệ và hỗ trợ chơi sáo: bao bọc sáo nhung cao cấp,
+      màng rung Dizi nốt chuẩn, keo dán màng sáo và dây treo trang trí.
+    btnLabel: TƯ VẤN MUA PHỤ KIỆN
+    btnHref: /?topic=Tư vấn bộ phụ kiện sáo trúc#register
+seoTitle: Cửa Hàng Sáo Trúc, Dizi, Sáo Mèo - Sáo trúc Âu Cơ
+seoDescription: >-
+  Mua sáo trúc cao cấp, sáo Dizi, sáo Nứa, sáo Mèo và phụ kiện sáo chọn lọc
+  chuẩn âm từ Sáo trúc Âu Cơ. Bảo hành âm thanh trọn đời.

@@ -48,6 +48,9 @@ contactIntro: >-
   Để lại thông tin, Sáo trúc Âu Cơ sẽ liên hệ tư vấn khóa học, mua sáo, tài liệu hoặc
   dịch vụ thu âm, biểu diễn trong thời gian sớm nhất.
 contactSubmitLabel: GỬI ĐĂNG KÝ
+bankId: vietinbank
+bankAccountNo: '113366668888'
+bankAccountName: SAO TRUC AU CO
 pinnedPosts:
   - gioi-thieu-ve-sao-truc-au-co
   - cac-lop-hoc-sao-truc-tai-au-co

@@ -148,6 +148,37 @@ export default config({
         }),
       },
     }),
+    courses: collection({
+      label: "Khóa học quay sẵn (VIDEO COURSES)",
+      slugField: "title",
+      path: "content/courses/*",
+      format: { data: "yaml" },
+      columns: ["title", "price"],
+      schema: {
+        order: fields.number({ label: "Thứ tự hiển thị", defaultValue: 1 }),
+        code: fields.text({ label: "Mã khóa học (VD: KH_SAOTRUC_CB)" }),
+        title: fields.slug({
+          name: { label: "Tên khóa học (VD: Khóa Học Sáo Trúc Cơ Bản ABC)" },
+          slug: { label: "Slug (đường dẫn, không dấu)" },
+        }),
+        price: fields.number({ label: "Giá bán (VNĐ)", validation: { isRequired: true } }),
+        badge: fields.text({ label: "Nhãn (VD: Bán chạy nhất, Nâng cao, Hot)" }),
+        duration: fields.text({ label: "Thời lượng / Số bài (VD: 20 bài giảng HD)" }),
+        desc: fields.text({ label: "Mô tả khóa học", multiline: true }),
+        coverIcon: fields.select({
+          label: "Icon bìa",
+          options: [
+            { label: "Laptop", value: "fa-solid fa-laptop" },
+            { label: "Mũ tốt nghiệp", value: "fa-solid fa-graduation-cap" },
+            { label: "Sách", value: "fa-solid fa-book-open" },
+            { label: "Nốt nhạc", value: "fa-solid fa-music" },
+            { label: "Ngôi sao", value: "fa-solid fa-star" },
+          ],
+          defaultValue: "fa-solid fa-laptop",
+        }),
+        coverTag: fields.text({ label: "Chữ trên bìa (VD: VIDEO COURSE)" }),
+      },
+    }),
   },
   singletons: {
     settings: singleton({
@@ -222,6 +253,24 @@ export default config({
         contactTitle: fields.text({ label: "Tiêu đề mục liên hệ (VD: LIÊN HỆ & ĐĂNG KÝ HỌC)" }),
         contactIntro: fields.text({ label: "Mô tả mục liên hệ", multiline: true }),
         contactSubmitLabel: fields.text({ label: "Nhãn nút gửi biểu mẫu (VD: GỬI ĐĂNG KÝ)" }),
+        bankId: fields.select({
+          label: "Mã ngân hàng VietQR (dùng để tạo mã QR thanh toán)",
+          options: [
+            { label: "VietinBank (Công Thương)", value: "vietinbank" },
+            { label: "MBBank (Quân Đội)", value: "mbbank" },
+            { label: "Vietcombank (Ngoại Thương)", value: "vietcombank" },
+            { label: "BIDV (Đầu tư & Phát triển)", value: "bidv" },
+            { label: "Techcombank (Kỹ Thương)", value: "techcombank" },
+            { label: "ACB (Á Châu)", value: "acb" },
+            { label: "TPBank (Tiên Phong)", value: "tpbank" },
+            { label: "VPBank (Việt Nam Thịnh Vượng)", value: "vpbank" },
+            { label: "Sacombank", value: "sacombank" },
+            { label: "Agribank", value: "agribank" },
+          ],
+          defaultValue: "vietinbank",
+        }),
+        bankAccountNo: fields.text({ label: "Số tài khoản ngân hàng (VD: 113366668888)" }),
+        bankAccountName: fields.text({ label: "Tên chủ tài khoản (VD: SAO TRUC AU CO)" }),
       },
     }),
     classesPage: singleton({
@@ -266,6 +315,47 @@ export default config({
       format: { data: "yaml" },
       schema: {
         title: fields.text({ label: "Tiêu đề trang (VD: TIN TỨC)" }),
+        intro: fields.text({ label: "Giới thiệu trang", multiline: true }),
+        seoTitle: fields.text({ label: "Tiêu đề SEO (tab trình duyệt)" }),
+        seoDescription: fields.text({ label: "Mô tả SEO", multiline: true }),
+      },
+    }),
+    saoPage: singleton({
+      label: "Trang Bán các loại sáo (/cua-hang-sao)",
+      path: "content/saoPage",
+      format: { data: "yaml" },
+      schema: {
+        title: fields.text({ label: "Tiêu đề trang (VD: BÁN CÁC LOẠI SÁO & PHỤ KIỆN)" }),
+        intro: fields.text({ label: "Giới thiệu trang", multiline: true }),
+        items: fields.array(
+          fields.object(
+            {
+              title: fields.text({ label: "Tên loại sáo / sản phẩm (VD: Sáo Trúc Nứa Đô C5 Cao Cấp)" }),
+              price: fields.text({ label: "Đơn giá (VD: 350.000đ)" }),
+              badge: fields.text({ label: "Nhãn (VD: Bán chạy, Nổi bật, Cao cấp)" }),
+              desc: fields.text({ label: "Mô tả sản phẩm", multiline: true }),
+              image: fields.image({
+                label: "Hình ảnh sản phẩm",
+                directory: "public/assets/products",
+                publicPath: "/assets/products/",
+              }),
+              btnLabel: fields.text({ label: "Nhãn nút (VD: TƯ VẤN MUA SÁO)" }),
+              btnHref: fields.text({ label: "Đường dẫn nút (VD: /?topic=Tư vấn mua sáo trúc#register)" }),
+            },
+            { label: "Sản phẩm" }
+          ),
+          { label: "Danh sách sản phẩm sáo & phụ kiện", itemLabel: (p) => p.fields.title.value ?? "Sản phẩm" }
+        ),
+        seoTitle: fields.text({ label: "Tiêu đề SEO (tab trình duyệt)" }),
+        seoDescription: fields.text({ label: "Mô tả SEO", multiline: true }),
+      },
+    }),
+    khoaHocPage: singleton({
+      label: "Trang Khóa học quay sẵn (/khoa-hoc-quay-san)",
+      path: "content/khoaHocPage",
+      format: { data: "yaml" },
+      schema: {
+        title: fields.text({ label: "Tiêu đề trang (VD: KHÓA HỌC QUAY SẴN)" }),
         intro: fields.text({ label: "Giới thiệu trang", multiline: true }),
         seoTitle: fields.text({ label: "Tiêu đề SEO (tab trình duyệt)" }),
         seoDescription: fields.text({ label: "Mô tả SEO", multiline: true }),

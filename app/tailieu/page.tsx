@@ -61,7 +61,7 @@ export default async function TailieuPage() {
             </p>
           </div>
 
-          <StorePayment items={items} />
+          <StorePayment items={items} settings={contact} />
         </section>
       </main>
       <Footer settings={contact} />

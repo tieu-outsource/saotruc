@@ -13,6 +13,7 @@ export const cms = {
   services: () => reader.collections.services.all({ resolveLinkedFiles: true }),
   classCards: () => reader.collections.classCards.all({ resolveLinkedFiles: true }),
   storeItems: () => reader.collections.storeItems.all({ resolveLinkedFiles: true }),
+  courses: () => reader.collections.courses.all({ resolveLinkedFiles: true }),
   posts: () => reader.collections.posts.all({ resolveLinkedFiles: true }),
   post: (slug: string) =>
     reader.collections.posts.read(slug, { resolveLinkedFiles: true }),
@@ -20,6 +21,8 @@ export const cms = {
   classesPage: () => reader.singletons.classesPage.read({ resolveLinkedFiles: true }),
   tailieuPage: () => reader.singletons.tailieuPage.read({ resolveLinkedFiles: true }),
   tinTucPage: () => reader.singletons.tinTucPage.read({ resolveLinkedFiles: true }),
+  saoPage: () => reader.singletons.saoPage.read({ resolveLinkedFiles: true }),
+  khoaHocPage: () => reader.singletons.khoaHocPage.read({ resolveLinkedFiles: true }),
   /** Site-wide text: contact info for the modal + footer/form copy, with hardcoded-site fallbacks. */
   siteSettings: async (): Promise<SiteSettings> => {
     const s = await reader.singletons.settings.read({ resolveLinkedFiles: true });
@@ -64,6 +67,9 @@ export const cms = {
       contactTitle: s?.contactTitle ?? "LIÊN HỆ & ĐĂNG KÝ HỌC",
       contactIntro: s?.contactIntro ?? "Để lại thông tin, Sáo trúc Âu Cơ sẽ liên hệ tư vấn khóa học, mua sáo, tài liệu hoặc dịch vụ thu âm, biểu diễn trong thời gian sớm nhất.",
       contactSubmitLabel: s?.contactSubmitLabel ?? "GỬI ĐĂNG KÝ",
+      bankId: s?.bankId ?? "vietinbank",
+      bankAccountNo: s?.bankAccountNo ?? "113366668888",
+      bankAccountName: s?.bankAccountName ?? "SAO TRUC AU CO",
       pinnedPosts: pinned,
     };
   },

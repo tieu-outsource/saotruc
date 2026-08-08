@@ -5,5 +5,5 @@ content: |-
   Sáo trúc nâng cao
   Sáo dizi & sáo nứa
 btnLabel: XEM CHI TIẾT
-btnHref: "/?topic=Đăng ký khóa học quay sẵn#register"
+btnHref: "/khoa-hoc-quay-san"
 bg: khoahocquaysan.avif

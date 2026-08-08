@@ -12,6 +12,7 @@ export type SocialLink = {
   btn: string;
   href: string;
 };
+
 export type FooterCustomField = {
   label: string;
   value: string;
@@ -31,6 +32,9 @@ export type SiteSettings = {
   contactTitle: string;
   contactIntro: string;
   contactSubmitLabel: string;
+  bankId?: string;
+  bankAccountNo?: string;
+  bankAccountName?: string;
   pinnedPosts: PinnedPost[];
 };
 
@@ -44,4 +48,25 @@ export type DocumentItem = {
   coverIcon: string;
   coverTag: string;
   desc: string;
+};
+
+export type SaoProductItem = {
+  title: string;
+  price?: string;
+  badge?: string;
+  image?: string | null;
+  desc?: string;
+  btnLabel?: string;
+  btnHref?: string;
+};
+
+export type CourseItem = {
+  id: string;
+  title: string;
+  price: number;
+  badge?: string;
+  duration?: string;
+  desc?: string;
+  coverIcon?: string;
+  coverTag?: string;
 };
