@@ -20,9 +20,9 @@ heroBenefits:
   - icon: fa-solid fa-user
     text: Giáo viên chuyên nghiệp
   - icon: fa-solid fa-star
-    text: Học viên trên toàn quốc
+    text: Dạy Offline tại TP.HCM, Online cho học viên ở xa
   - icon: fa-solid fa-heart
-    text: Đam mê – Tận tâm – Truyền cảm hứng
+    text: Đồng hành – Tận tâm – Truyền cảm hứng
 pinnedPosts:
   - gioi-thieu-ve-sao-truc-au-co
   - cac-lop-hoc-sao-truc-tai-au-co
