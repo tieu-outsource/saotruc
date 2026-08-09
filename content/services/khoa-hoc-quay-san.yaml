@@ -1,9 +1,8 @@
-num: '2.4'
+num: '4'
 title: KHÓA HỌC QUAY SẴN
 content: |-
   Sáo trúc cơ bản
   Sáo trúc nâng cao
   Sáo dizi & sáo nứa
 btnLabel: XEM CHI TIẾT
-btnHref: "/khoa-hoc-quay-san"
-bg: khoahocquaysan.avif
+btnHref: /khoa-hoc-quay-san
