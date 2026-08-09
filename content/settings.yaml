@@ -16,7 +16,7 @@ heroSlides:
     primaryHref: /lophoc
 heroBenefits:
   - icon: fa-solid fa-music
-    text: Phương pháp bài bản, dễ hiểu
+    text: Phương pháp khoa học, trọng tâm, dễ hiểu
   - icon: fa-solid fa-user
     text: Giáo viên chuyên nghiệp
   - icon: fa-solid fa-star
@@ -26,22 +26,22 @@ heroBenefits:
 pinnedPosts:
   - gioi-thieu-ve-sao-truc-au-co
   - cac-lop-hoc-sao-truc-tai-au-co
-phoneRaw: '0382910471'
-phoneDisplay: 0382 910 471
-zalo: '0382910471'
+phoneRaw: '0374261368'
+phoneDisplay: 0374 261 368
+zalo: '0374261368'
 socials:
   - network: youtube
     handle: Kênh sáo Âu Cơ
     btn: XEM KÊNH
-    href: https://youtube.com
+    href: https://www.youtube.com/@havan5138
   - network: facebook
     handle: Sáo trúc Âu Cơ
     btn: THEO DÕI
-    href: https://facebook.com
+    href: https://www.facebook.com/profile.php?id=100063724136416
   - network: tiktok
     handle: '@sao-truc-au-co'
     btn: THEO DÕI
-    href: https://tiktok.com
+    href: https://www.tiktok.com/@lopsaoauco
   - network: instagram
     handle: '@auco.music'
     btn: THEO DÕI
@@ -52,16 +52,16 @@ contactIntro: >-
   hoặc dịch vụ thu âm, biểu diễn trong thời gian sớm nhất.
 contactSubmitLabel: GỬI ĐĂNG KÝ
 footerMotto: ĐAM MÊ LÀM NÊN GIÁ TRỊ - CHẤT LƯỢNG TẠO NÊN UY TÍN
-footerSubtitle: Đồng hành cùng bạn trên hành trình chạm đến âm nhạc truyền thống.
+footerSubtitle: Đồng hành cùng bạn trên hành trình học tập.
 footerCtaLabel: LIÊN HỆ TƯ VẤN
 footerCustomFields:
   - label: Địa chỉ
-    value: Hà Nội, Việt Nam
+    value: 106/72 Hoà Bình, P. Tân Phú, TP. HCM
   - label: Hotline / Zalo
-    value: 0382 910 471
+    value: 0374 261 368
   - label: Email
-    value: saotrucauco@gmail.com
+    value: vanquach999x@gmail.com
 footerCopyright: © 2026 Sáo trúc Âu Cơ. Tất cả quyền được bảo lưu.
-bankId: TCB
-bankAccountNo: '9720041999'
-bankAccountName: LE CANH TIEU
+bankId: STB
+bankAccountNo: '030040023451'
+bankAccountName: QUACH HA VAN
