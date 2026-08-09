@@ -28,6 +28,7 @@ export default function PaymentModal({
   const [buyerPhone, setBuyerPhone] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "confirmed" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [copiedField, setCopiedField] = useState<"acc" | "code" | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -36,6 +37,13 @@ export default function PaymentModal({
   const bankAccountNo = settings?.bankAccountNo || "113366668888";
   const bankAccountName = settings?.bankAccountName || "SAO TRUC AU CO";
   const itemCode = item?.code || item?.id || "AUCO_STORE";
+  function handleCopy(text: string, field: "acc" | "code") {
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+      setCopiedField(field);
+      setTimeout(() => setCopiedField(null), 2000);
+    }
+  }
 
   useEffect(() => {
     if (!open) {
@@ -139,7 +147,17 @@ export default function PaymentModal({
                   </div>
                   <div className="payment-detail-row">
                     <span className="detail-label">Số tài khoản:</span>
-                    <span className="detail-value bold copyable">{bankAccountNo}</span>
+                    <div className="detail-value-wrapper">
+                      <span className="detail-value bold copyable">{bankAccountNo}</span>
+                      <button
+                        type="button"
+                        className="copy-btn"
+                        onClick={() => handleCopy(bankAccountNo, "acc")}
+                        title="Sao chép số tài khoản"
+                      >
+                        {copiedField === "acc" ? "Đã chép ✓" : "Sao chép"}
+                      </button>
+                    </div>
                   </div>
                   <div className="payment-detail-row">
                     <span className="detail-label">Chủ tài khoản:</span>
@@ -153,7 +171,17 @@ export default function PaymentModal({
                   </div>
                   <div className="payment-detail-row">
                     <span className="detail-label">Nội dung chuyển khoản:</span>
-                    <span className="detail-value code-tag">{itemCode}</span>
+                    <div className="detail-value-wrapper">
+                      <span className="detail-value code-tag">{itemCode}</span>
+                      <button
+                        type="button"
+                        className="copy-btn"
+                        onClick={() => handleCopy(itemCode, "code")}
+                        title="Sao chép nội dung chuyển khoản"
+                      >
+                        {copiedField === "code" ? "Đã chép ✓" : "Sao chép"}
+                      </button>
+                    </div>
                   </div>
                 </div>
 
@@ -193,6 +221,16 @@ export default function PaymentModal({
                     className="vietqr-img"
                   />
                 </div>
+                <a
+                  href={vietQrUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download={`VietQR_${itemCode}.jpg`}
+                  className="download-qr-link"
+                >
+                  <i className="fa-solid fa-download" aria-hidden="true" style={{ marginRight: 6 }} />
+                  Tải / Mở ảnh QR
+                </a>
                 <button
                   type="button"
                   className="btn btn-primary payment-confirm-btn"
