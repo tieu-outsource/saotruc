@@ -1,10 +1,9 @@
-num: '1'
-title: LỚP HỌC CÁC BỘ MÔN
+num: '1.1'
+title: Các Bộ Môn Giảng Dạy
 content: |-
-  Sáo trúc
-  Dizi
-  Sáo nứa
-  Sáo mèo
+  Sáo trúc, Sáo Mèo
+  Sáo Dizi, Động Tiêu VN & xiao
+  Sáo recorder, sáo Flute 
   Và các bộ môn dân tộc khác
 btnLabel: XEM CHI TIẾT
 btnHref: /lophoc
