@@ -1,4 +1,4 @@
-num: '2.1'
+num: '1'
 title: LỚP HỌC CÁC BỘ MÔN
 content: |-
   Sáo trúc
@@ -8,4 +8,3 @@ content: |-
   Và các bộ môn dân tộc khác
 btnLabel: XEM CHI TIẾT
 btnHref: /lophoc
-bg: lophoc.avif
