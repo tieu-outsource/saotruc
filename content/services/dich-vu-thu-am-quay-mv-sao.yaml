@@ -1,4 +1,4 @@
-num: '2.6'
+num: '6'
 title: DỊCH VỤ THU ÂM, QUAY MV SÁO
 content: |-
   Thu âm chuyên nghiệp
@@ -7,6 +7,5 @@ content: |-
 priceTitle: Gói Full Combo
 priceAmount: 2.500.000đ / 1 bài
 giftNote: Học viên học hết khóa 3 tháng được tặng 1 MV làm kỷ niệm
-bg: thuam.avif
 btnLabel: LIÊN HỆ NGAY
-btnHref: "/?topic=Tư vấn dịch vụ thu âm, quay MV sáo#register"
+btnHref: /?topic=Tư vấn dịch vụ thu âm, quay MV sáo#register
