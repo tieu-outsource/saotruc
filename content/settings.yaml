@@ -1,6 +1,6 @@
 heroSlides:
-  - title: Hơi Thở
-    accent: 'Tâm Hồn '
+  - title: Hơi Thở Thành Âm
+    accent: Tâm Hồn Thành Nhạc
     description: >-
       Dạy học – Biểu diễn – Sản phẩm & Dịch vụ chuyên nghiệp về sáo trúc và âm
       nhạc dân tộc.
@@ -9,8 +9,8 @@ heroSlides:
     secondaryLabel: TƯ VẤN
     secondaryHref: '#contact'
   - image: /assets/hero/heroSlides/1/image.png
-    title: 'Đam Mê '
-    accent: 'Khổ Luyện '
+    title: Đam Mê - Kiên Trì
+    accent: Khổ Luyện
     description: Đồng hành cùng bạn trên hành trình chạm đến âm nhạc truyền thống.
     primaryLabel: Khóa học
     primaryHref: /lophoc
