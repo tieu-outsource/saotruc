@@ -1,8 +1,9 @@
 num: '2'
 title: ĐĂNG KÍ LỚP HỌC
 content: |-
-  Gia sư tại nhà
   Học trực tiếp tại trung tâm
-  Học online 1 kèm 1
+  Gia sư tại nhà riêng của học viên
+  Học online 1 kèm 1  
+  Thời gian: Linh động sắp xếp theo lịch học viên
 btnLabel: ĐĂNG KÝ NGAY
 btnHref: /?topic=Đăng ký lớp học sáo trúc#register
