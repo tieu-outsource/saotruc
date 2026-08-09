@@ -1,9 +1,9 @@
 num: '2.3'
-title: BÁN CÁC LOẠI SÁO
+title: BÁN CÁC LOẠI SÁO M
 content: |-
   Sáo trúc cao cấp
   Sáo dizi
   Sáo nứa, sáo mèo
   Phụ kiện sáo
 btnLabel: MUA NGAY
-btnHref: "/cua-hang-sao"
+btnHref: /cua-hang-sao
