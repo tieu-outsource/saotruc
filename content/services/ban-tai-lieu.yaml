@@ -1,4 +1,4 @@
-num: '2.5'
+num: '5'
 title: BÁN TÀI LIỆU
 content: |-
   Giáo trình:
@@ -10,4 +10,3 @@ priceTitle: Sheet nhạc
 priceAmount: 100.000đ / sheet
 btnLabel: XEM NGAY
 btnHref: /tailieu
-bg: tailieu.avif
