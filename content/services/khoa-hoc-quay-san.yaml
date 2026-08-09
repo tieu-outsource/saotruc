@@ -1,8 +1,7 @@
 num: '4'
-title: KHÓA HỌC QUAY SẴN
+title: Khoá Học & Bài Giảng Quay Sẵn
 content: |-
-  Sáo trúc cơ bản
-  Sáo trúc nâng cao
-  Sáo dizi & sáo nứa
+  Khoá học các loại sáo: Sáo ngang, sáo dizi,...
+  Bài giảng chi tiết cụ thể cho Ca khúc, tác phẩm
 btnLabel: XEM CHI TIẾT
 btnHref: /khoa-hoc-quay-san
