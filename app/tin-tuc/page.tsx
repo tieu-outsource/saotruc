@@ -62,7 +62,7 @@ export default async function TinTucPage() {
                   {post.entry.cover && (
                     <div className="news-card-cover">
                       <img
-                        src={`/assets/posts/${post.entry.cover}`}
+                        src={`${post.entry.cover}`}
                         alt={post.entry.title}
                         loading="lazy"
                       />
