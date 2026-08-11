@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post || !post.published) return {};
   const postTitle = `${post.title} - Sáo trúc Âu Cơ`;
   const ogImage = post.cover
-    ? { url: `/assets/posts/${post.cover}`, alt: post.title }
+    ? { url: `${post.cover}`, alt: post.title }
     : {
         url: "/og-default.jpg",
         width: 1200,
@@ -71,7 +71,7 @@ export default async function PostPage({ params }: Props) {
           {post.cover && (
             <img
               className="post-cover"
-              src={`/assets/posts/${post.cover}`}
+              src={`${post.cover}`}
               alt={post.title}
             />
           )}
